@@ -1,0 +1,20 @@
+#sortable-list{margin-top:30px}#loading-animation{display:none}.ui-sortable-handle{-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;background:#fff;-webkit-border-radius:4px;border-radius:4px;box-shadow:none;cursor:move;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;justify-items:center;margin-bottom:16px;max-width:1000px;padding:20px;-webkit-transition:-webkit-box-shadow .1s ease-in-out;transition:-webkit-box-shadow .1s ease-in-out;-o-transition:box-shadow .1s ease-in-out;transition:box-shadow .1s ease-in-out;transition:box-shadow .1s ease-in-out,-webkit-box-shadow .1s ease-in-out}.ui-sortable-handle .sortable-icon{-webkit-box-flex:1;-webkit-flex:1 0 32px;-ms-flex:1 0 32px;flex:1 0 32px;max-width:50px}.ui-sortable-handle .sortable-thumbnail{-webkit-box-flex:1;-webkit-flex:1 0 60px;-ms-flex:1 0 60px;flex:1 0 60px;line-height:0;max-width:60px}.ui-sortable-handle .sortable-category,.ui-sortable-handle .sortable-title{-webkit-box-flex:1;-webkit-flex:1 1 45%;-ms-flex:1 1 45%;flex:1 1 45%}.ui-sortable-handle .sortable-title{font-size:16px;max-width:350px;padding:10px}.ui-sortable-handle .sortable-thumbnail{display:block;height:60px;overflow:hidden;width:60px}.ui-sortable-handle .sortable-thumbnail img{height:auto;width:100%;border-radius:3px}.ui-sortable-handle .sortable-category span{border:1px solid #2595e9;-webkit-border-radius:25px;border-radius:25px;display:inline-block;line-height:1;margin:4px;padding:10px 20px;text-transform:capitalize;color:#2595e9}.ui-sortable-handle:hover{-webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.1);box-shadow:0 0 10px 0 rgba(0,0,0,.1)}
+
+.gs_testimonial_page_sort_gs_testimonial .wrap,
+.gs_testimonial_page_sort_group_gs_testimonial .wrap {
+    opacity: 0.3;
+}
+
+.gs_testimonial_page_sort_gs_testimonial .wrap.wrap-active,
+.gs_testimonial_page_sort_group_gs_testimonial .wrap.wrap-active {
+    opacity: 1;
+}
+
+.ui-sortable-handle .sortable-group span {
+    display: inline-block;
+    border-radius: 25px;
+    border: 1px solid #e5e5ea;
+    margin: 4px;
+    padding: 7px;
+    line-height: 1;
+}

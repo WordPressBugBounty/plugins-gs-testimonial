@@ -1,0 +1,68 @@
+.gstm-repeater-item {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 5px;
+    border: 1px solid #eee;
+}
+
+.gs-tm-company-thumb a.rudr-upload {
+    display: inline-block;
+}
+.gs-tm-company-thumb img {
+    max-width: 200px;
+    height: auto;
+}
+
+.gstm-repeater-content {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    width: 100%;
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.gstm-repeater-helper {
+    border-left: 0;
+    background-color: transparent;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1em;
+    border-left: 1px solid #eee;
+}
+
+.gstm-field {
+    padding: 15px;
+}
+
+.gstm-field.gstm-field-text.social-url input {
+    width: 100%;
+    margin: 0;
+}
+
+.gstm-repeater-helper-inner {
+    width: 100px;
+    line-height: 4em;
+}
+
+.gstm-repeater-helper-inner > i {
+    display: inline-block;
+    cursor: pointer;
+    color: #999;
+    padding: 5px;
+}
+
+.pro-only {
+    pointer-events: none;
+    opacity: .4;
+}
+
+#gstm_social_profiles select,
+#gstm_social_profiles select + .select2-container,
+#select2-gs_t_social_profilesicon-results {
+	text-transform: capitalize;
+}
