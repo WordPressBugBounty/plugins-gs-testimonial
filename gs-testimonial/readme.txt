@@ -2,9 +2,9 @@
 Contributors: gsplugins, itszaman, samdani, freemius
 Donate link: https://www.paypal.com/donate/?hosted_button_id=K7K8YF4U3SCNQ
 Requires at least: 5.9
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 3.2.8
+Stable tag: 3.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: wordpress testimonial plugin, testimonial plugin, best testimonial plugin, testimonial, testimonial showcase, testimonial slider, free testimonial plugin
@@ -565,6 +565,9 @@ Don't miss out on these proven benefits! Incorporate customer testimonials into 
 16. Query Settings (3rd Tab). Check documentation for more Query Controls.
 
 == Changelog ==
+= Version 3.2.9 - Feb 10, 2025 =
+* [Updated]: Freemius SDK 2.11.0
+
 = Version 3.2.8 [23rd Oct 24] =
 * [Fixed]: Allowed HTML content on the Popup.
 * [Fixed]: Line Number Issue on Grid.
@@ -794,6 +797,9 @@ Don't miss out on these proven benefits! Incorporate customer testimonials into 
 * Initial release
 
 == Upgrade notice ==
+= Version 3.2.9 - Feb 10, 2025 =
+* [Updated]: Freemius SDK 2.11.0
+
 = Version 3.2.8 [23rd Oct 24] =
 * [Fixed]: Allowed HTML content on the Popup.
 * [Fixed]: Line Number Issue on Grid.

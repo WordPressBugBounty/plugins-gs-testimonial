@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Solid_Testimonial
+# Copyright (C) 2025 Solid_Testimonial
 # This file is distributed under the same license as the Solid_Testimonial package.
 msgid ""
 msgstr ""
