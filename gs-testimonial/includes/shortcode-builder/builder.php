@@ -384,7 +384,7 @@ final class Builder {
             $post->post_date = current_time( 'mysql' );
             $post->post_date_gmt = current_time( 'mysql', 1 );
             $post->post_title = __( 'Shortcode Preview', 'gs-testimonial' );
-            $post->post_content = '[gs_testimonial preview="yes" id="' . $_REQUEST['gstm_shortcode_preview'] . '"]';
+            $post->post_content = '[gs_testimonial preview="yes" id="' . esc_attr( sanitize_key( $_REQUEST['gstm_shortcode_preview'] ) ) . '"]';
             $post->post_status = 'publish';
             $post->comment_status = 'closed';
             $post->ping_status = 'closed';
