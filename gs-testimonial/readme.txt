@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=K7K8YF4U3SCNQ
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.3.0
+Stable tag: 3.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: testimonials, testimonial slider, customer reviews, social proof, testimonial showcase
@@ -565,6 +565,9 @@ Don't miss out on these proven benefits! Incorporate customer testimonials into 
 16. Query Settings (3rd Tab). Check documentation for more Query Controls.
 
 == Changelog ==
+= Version 3.3.1 - Apr 29, 2025 =
+* [Fixed]: Patchstack Report.
+
 = Version 3.3.0 - Apr 22, 2025 =
 * [Fixed]: Unauthenticated Arbitrary Shortcode Execution.
 
@@ -800,6 +803,9 @@ Don't miss out on these proven benefits! Incorporate customer testimonials into 
 * Initial release
 
 == Upgrade notice ==
+= Version 3.3.1 - Apr 29, 2025 =
+* [Fixed]: Patchstack Report.
+
 = Version 3.3.0 - Apr 22, 2025 =
 * [Fixed]: Unauthenticated Arbitrary Shortcode Execution.
 

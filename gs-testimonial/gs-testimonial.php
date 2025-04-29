@@ -12,7 +12,7 @@
  * Plugin Name:			Solid Testimonials
  * Plugin URI:			https://www.gsplugins.com/wordpress-plugins
  * Description:       	Discover the Ultimate Responsive Testimonials Slider for Showcasing Client Testimonials and Recommendations. Easily Display Anywhere on Your Site using the Simple Shortcode [gs_testimonial id=1]. Explore <a href="https://testimonial.gsplugins.com">Solid Testimonials Demo</a> and Comprehensive <a href="https://docs.gsplugins.com/gs-testimonial-slider">Documentation</a>.
- * Version:           	3.3.0
+ * Version:           	3.3.1
  * Author:       		GS Plugins
  * Author URI:       	https://www.gsplugins.com
  * Text Domain:       	gs-testimonial
@@ -28,7 +28,7 @@ if ( !defined( 'WPINC' ) ) {
  * Defining constants
  */
 if ( !defined( 'GSTM_VERSION' ) ) {
-    define( 'GSTM_VERSION', '3.3.0' );
+    define( 'GSTM_VERSION', '3.3.1' );
 }
 if ( !defined( 'GSTM_MENU_POSITION' ) ) {
     define( 'GSTM_MENU_POSITION', 39 );

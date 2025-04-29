@@ -363,14 +363,15 @@ final class Builder {
         return $this->_get_shortcode_pref( wp_doing_ajax() );
     }
 
-    public function save_shortcode_pref( $nonce = null ) {
-        if ( !$nonce ) {
-            $nonce = wp_create_nonce( '_gstm_save_shortcode_pref_gs_' );
+    public function save_shortcode_pref() {
+        check_ajax_referer( '_gstm_save_shortcode_pref_gs_' );
+        if ( !current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( __( 'Unauthorised Request', 'gs-testimonial' ), 401 );
         }
         if ( empty( $_POST['prefs'] ) ) {
             wp_send_json_error( __( 'No preferences provided', 'gs-testimonial' ), 400 );
         }
-        $this->_save_shortcode_pref( $nonce, $_POST['prefs'], true );
+        $this->_save_shortcode_pref( $_POST['prefs'], true );
     }
 
     public function populate_shortcode_preview( $template ) {
@@ -461,13 +462,7 @@ final class Builder {
         return $settings;
     }
 
-    public function _save_shortcode_pref( $nonce, $settings, $is_ajax ) {
-        if ( !wp_verify_nonce( $nonce, '_gstm_save_shortcode_pref_gs_' ) ) {
-            if ( $is_ajax ) {
-                wp_send_json_error( __( 'Unauthorised Request', 'gs-testimonial' ), 401 );
-            }
-            return false;
-        }
+    public function _save_shortcode_pref( $settings, $is_ajax ) {
         $settings = $this->validate_preference( $settings );
         update_option( 'gstm_shortcode_prefs', $settings );
         do_action( 'gstm_preference_update' );

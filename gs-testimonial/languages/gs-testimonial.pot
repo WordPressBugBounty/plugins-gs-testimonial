@@ -120,7 +120,7 @@ msgctxt "Taxonomy Singular Name"
 msgid "Testimonial Category"
 msgstr ""
 
-#: ../includes/cpt.php:105, ../includes/shortcode-builder/builder.php:1496
+#: ../includes/cpt.php:105, ../includes/shortcode-builder/builder.php:1494
 msgid "Category"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgstr ""
 msgid "We didn't find any testimonials.</br>Please add some testimonials to sort them."
 msgstr ""
 
-#: ../includes/term-sort.php:331, ../includes/term-sort.php:370, ../includes/demo-data/dummy-data.php:168, ../includes/demo-data/dummy-data.php:187, ../includes/demo-data/dummy-data.php:206, ../includes/demo-data/dummy-data.php:219, ../includes/demo-data/dummy-data.php:232, ../includes/demo-data/dummy-data.php:245, ../includes/demo-data/dummy-data.php:952, ../includes/shortcode-builder/builder.php:110, ../includes/shortcode-builder/builder.php:240, ../includes/shortcode-builder/builder.php:305, ../includes/shortcode-builder/builder.php:368, ../includes/shortcode-builder/builder.php:400, ../includes/shortcode-builder/builder.php:535
+#: ../includes/term-sort.php:331, ../includes/term-sort.php:370, ../includes/demo-data/dummy-data.php:168, ../includes/demo-data/dummy-data.php:187, ../includes/demo-data/dummy-data.php:206, ../includes/demo-data/dummy-data.php:219, ../includes/demo-data/dummy-data.php:232, ../includes/demo-data/dummy-data.php:245, ../includes/demo-data/dummy-data.php:952, ../includes/shortcode-builder/builder.php:110, ../includes/shortcode-builder/builder.php:240, ../includes/shortcode-builder/builder.php:305, ../includes/shortcode-builder/builder.php:368, ../includes/shortcode-builder/builder.php:400, ../includes/shortcode-builder/builder.php:427
 msgid "Unauthorised Request"
 msgstr ""
 
@@ -304,7 +304,7 @@ msgstr ""
 msgid "Tab 1"
 msgstr ""
 
-#: ../includes/integrations/integration-beaver.php:36, ../includes/shortcode-builder/builder.php:1518
+#: ../includes/integrations/integration-beaver.php:36, ../includes/shortcode-builder/builder.php:1516
 msgid "Shortcode"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgstr ""
 msgid "Edit this shortcode"
 msgstr ""
 
-#: ../includes/integrations/integration-elementor.php:178, ../includes/integrations/integration-gutenberg.php:50, ../includes/integrations/integration-wpb-vc.php:114, ../includes/shortcode-builder/builder.php:1525
+#: ../includes/integrations/integration-elementor.php:178, ../includes/integrations/integration-gutenberg.php:50, ../includes/integrations/integration-wpb-vc.php:114, ../includes/shortcode-builder/builder.php:1523
 msgid "Edit"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "Testimonial Shortcodes"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:38, ../includes/shortcode-builder/builder.php:1517, ../includes/shortcode-builder/page.php:6
+#: ../includes/shortcode-builder/builder.php:38, ../includes/shortcode-builder/builder.php:1515, ../includes/shortcode-builder/page.php:6
 msgid "Shortcodes"
 msgstr ""
 
@@ -376,7 +376,7 @@ msgstr ""
 msgid "Shortcode cloned successfully"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:311, ../includes/shortcode-builder/builder.php:1363
+#: ../includes/shortcode-builder/builder.php:311, ../includes/shortcode-builder/builder.php:1361
 msgid "Shortcode ID missing"
 msgstr ""
 
@@ -414,743 +414,743 @@ msgstr ""
 msgid "Temp data saved"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:429
+#: ../includes/shortcode-builder/builder.php:431
 msgid "No preferences provided"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:447
+#: ../includes/shortcode-builder/builder.php:449
 msgid "Shortcode Preview"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:547
+#: ../includes/shortcode-builder/builder.php:545
 msgid "Preference saved"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:672
+#: ../includes/shortcode-builder/builder.php:670
 msgid "1 Column"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:676
+#: ../includes/shortcode-builder/builder.php:674
 msgid "2 Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:680
+#: ../includes/shortcode-builder/builder.php:678
 msgid "3 Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:684
+#: ../includes/shortcode-builder/builder.php:682
 msgid "4 Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:699
+#: ../includes/shortcode-builder/builder.php:697
 msgid "Grid"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:703
+#: ../includes/shortcode-builder/builder.php:701
 msgid "Carousel"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:710
+#: ../includes/shortcode-builder/builder.php:708
 msgid "Masonry"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:714
+#: ../includes/shortcode-builder/builder.php:712
 msgid "Filter"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:742
+#: ../includes/shortcode-builder/builder.php:740
 msgid "Style 1"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:746
+#: ../includes/shortcode-builder/builder.php:744
 msgid "Style 2"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:750
+#: ../includes/shortcode-builder/builder.php:748
 msgid "Style 3"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:758
+#: ../includes/shortcode-builder/builder.php:756
 msgid "Style 4"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:762
+#: ../includes/shortcode-builder/builder.php:760
 msgid "Style 5"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:766
+#: ../includes/shortcode-builder/builder.php:764
 msgid "Style 6"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:770
+#: ../includes/shortcode-builder/builder.php:768
 msgid "Style 7"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:774
+#: ../includes/shortcode-builder/builder.php:772
 msgid "Style 8"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:778
+#: ../includes/shortcode-builder/builder.php:776
 msgid "Style 9"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:782
+#: ../includes/shortcode-builder/builder.php:780
 msgid "Style 10"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:786
+#: ../includes/shortcode-builder/builder.php:784
 msgid "Style 11"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:790
+#: ../includes/shortcode-builder/builder.php:788
 msgid "Style 12"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:794
+#: ../includes/shortcode-builder/builder.php:792
 msgid "Style 13"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:798
+#: ../includes/shortcode-builder/builder.php:796
 msgid "Style 14"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:802
+#: ../includes/shortcode-builder/builder.php:800
 msgid "Style 15"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:806
+#: ../includes/shortcode-builder/builder.php:804
 msgid "Style 16"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:810
+#: ../includes/shortcode-builder/builder.php:808
 msgid "Style 17"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:814
+#: ../includes/shortcode-builder/builder.php:812
 msgid "Style 18"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:818
+#: ../includes/shortcode-builder/builder.php:816
 msgid "Carousel Style 1"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:845, ../includes/shortcode-builder/builder.php:1017, ../includes/shortcode-builder/builder.php:1042
+#: ../includes/shortcode-builder/builder.php:843, ../includes/shortcode-builder/builder.php:1015, ../includes/shortcode-builder/builder.php:1040
 msgid "Default"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:852
+#: ../includes/shortcode-builder/builder.php:850
 msgid "Square"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:856
+#: ../includes/shortcode-builder/builder.php:854
 msgid "Circle"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:860
+#: ../includes/shortcode-builder/builder.php:858
 msgid "Radius"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:864
+#: ../includes/shortcode-builder/builder.php:862
 msgid "Square Shadow"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:868
+#: ../includes/shortcode-builder/builder.php:866
 msgid "Circle Shadow"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:872
+#: ../includes/shortcode-builder/builder.php:870
 msgid "Radius Shadow"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:898
+#: ../includes/shortcode-builder/builder.php:896
 msgid "ID"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:902
+#: ../includes/shortcode-builder/builder.php:900
 msgid "Title"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:906
+#: ../includes/shortcode-builder/builder.php:904
 msgid "Random"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:910
+#: ../includes/shortcode-builder/builder.php:908
 msgid "Date"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:917
+#: ../includes/shortcode-builder/builder.php:915
 msgid "Custom Order"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:943
+#: ../includes/shortcode-builder/builder.php:941
 msgid "DESC"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:947
+#: ../includes/shortcode-builder/builder.php:945
 msgid "ASC"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:963
+#: ../includes/shortcode-builder/builder.php:961
 msgid "Normal"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:970
+#: ../includes/shortcode-builder/builder.php:968
 msgid "Gray to Normal"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:974
+#: ../includes/shortcode-builder/builder.php:972
 msgid "Grey on Hover"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:978
+#: ../includes/shortcode-builder/builder.php:976
 msgid "Always Gray"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:999
+#: ../includes/shortcode-builder/builder.php:997
 msgid "Left"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1003
+#: ../includes/shortcode-builder/builder.php:1001
 msgid "Center"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1007
+#: ../includes/shortcode-builder/builder.php:1005
 msgid "Right"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1021, ../includes/shortcode-builder/builder.php:1046, ../includes/shortcode-builder/builder.php:1088
+#: ../includes/shortcode-builder/builder.php:1019, ../includes/shortcode-builder/builder.php:1044, ../includes/shortcode-builder/builder.php:1086
 msgid "Style One"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1025, ../includes/shortcode-builder/builder.php:1050, ../includes/shortcode-builder/builder.php:1092
+#: ../includes/shortcode-builder/builder.php:1023, ../includes/shortcode-builder/builder.php:1048, ../includes/shortcode-builder/builder.php:1090
 msgid "Style Two"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1029, ../includes/shortcode-builder/builder.php:1054, ../includes/shortcode-builder/builder.php:1096
+#: ../includes/shortcode-builder/builder.php:1027, ../includes/shortcode-builder/builder.php:1052, ../includes/shortcode-builder/builder.php:1094
 msgid "Style Three"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1067
+#: ../includes/shortcode-builder/builder.php:1065
 msgid "Bottom"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1071
+#: ../includes/shortcode-builder/builder.php:1069
 msgid "Bottom Inside Left"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1075
+#: ../includes/shortcode-builder/builder.php:1073
 msgid "Bottom Inside Right"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1100
+#: ../includes/shortcode-builder/builder.php:1098
 msgid "Style Four"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1104
+#: ../includes/shortcode-builder/builder.php:1102
 msgid "Style Five"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1391
+#: ../includes/shortcode-builder/builder.php:1389
 msgid "No shortcode found"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1438
+#: ../includes/shortcode-builder/builder.php:1436
 msgid "Filter All Text"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1439
+#: ../includes/shortcode-builder/builder.php:1437
 msgid "Modify the filter All text."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1440
+#: ../includes/shortcode-builder/builder.php:1438
 msgid "Details Control"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1441
+#: ../includes/shortcode-builder/builder.php:1439
 msgid "Define Max Number"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1442
+#: ../includes/shortcode-builder/builder.php:1440
 msgid "Enable Autoplay"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1443
+#: ../includes/shortcode-builder/builder.php:1441
 msgid "Autoplay Delay"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1444
+#: ../includes/shortcode-builder/builder.php:1442
 msgid "Pause On Hover"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1445
+#: ../includes/shortcode-builder/builder.php:1443
 msgid "Carousel autoplay will be paused when hover over on the widget"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1446, ../includes/shortcode-builder/builder.php:1447
+#: ../includes/shortcode-builder/builder.php:1444, ../includes/shortcode-builder/builder.php:1445
 msgid "Reverse Direction"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1448
+#: ../includes/shortcode-builder/builder.php:1446
 msgid "Border Thickness"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1449
+#: ../includes/shortcode-builder/builder.php:1447
 msgid "Author image Border Thickness. Default 3 PX. Max 10 PX"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1450, ../includes/shortcode-builder/builder.php:1451, ../includes/shortcode-builder/builder.php:1512
+#: ../includes/shortcode-builder/builder.php:1448, ../includes/shortcode-builder/builder.php:1449, ../includes/shortcode-builder/builder.php:1510
 msgid "Designation Label"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1452, ../includes/shortcode-builder/builder.php:1453, ../includes/shortcode-builder/builder.php:1510
+#: ../includes/shortcode-builder/builder.php:1450, ../includes/shortcode-builder/builder.php:1451, ../includes/shortcode-builder/builder.php:1508
 msgid "Company Label"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1454
+#: ../includes/shortcode-builder/builder.php:1452
 msgid "Image Height"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1455
+#: ../includes/shortcode-builder/builder.php:1453
 msgid "Author image size in height. Default 86 PX. Max 125 PX Note : Use same size height & width to display Round image ( Pro Feature )"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1456
+#: ../includes/shortcode-builder/builder.php:1454
 msgid "Image Width"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1457
+#: ../includes/shortcode-builder/builder.php:1455
 msgid "Author image size in width. Default 86 PX. Max 125 PX"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1458
+#: ../includes/shortcode-builder/builder.php:1456
 msgid "Filter Category Position"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1459
+#: ../includes/shortcode-builder/builder.php:1457
 msgid "Show Title"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1460
+#: ../includes/shortcode-builder/builder.php:1458
 msgid "Enable / Disable Title field"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1461
+#: ../includes/shortcode-builder/builder.php:1459
 msgid "Allow HTML"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1462
+#: ../includes/shortcode-builder/builder.php:1460
 msgid "Enable / Disable Allow HTML"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1463
+#: ../includes/shortcode-builder/builder.php:1461
 msgid "Line Control"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1464
+#: ../includes/shortcode-builder/builder.php:1462
 msgid "Enable / Disable Line Control"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1465
+#: ../includes/shortcode-builder/builder.php:1463
 msgid "Show Rating on Popup"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1466
+#: ../includes/shortcode-builder/builder.php:1464
 msgid "Enable / Disable Rating on Popup"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1467
+#: ../includes/shortcode-builder/builder.php:1465
 msgid "Show Published Date"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1468
+#: ../includes/shortcode-builder/builder.php:1466
 msgid "Enable / Disable Published Date"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1469
+#: ../includes/shortcode-builder/builder.php:1467
 msgid "Show Designation"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1470
+#: ../includes/shortcode-builder/builder.php:1468
 msgid "Enable/Disable Designation field"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1471
+#: ../includes/shortcode-builder/builder.php:1469
 msgid "Show Company Name"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1472
+#: ../includes/shortcode-builder/builder.php:1470
 msgid "Show / Hide Company Name"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1473
+#: ../includes/shortcode-builder/builder.php:1471
 msgid "Show Ratings"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1474
+#: ../includes/shortcode-builder/builder.php:1472
 msgid "Show / Hide Ratings . Default OFF"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1475
+#: ../includes/shortcode-builder/builder.php:1473
 msgid "Show Author Image"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1476
+#: ../includes/shortcode-builder/builder.php:1474
 msgid "Show / Hide Author Image . Default OFF"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1477
+#: ../includes/shortcode-builder/builder.php:1475
 msgid "Show Company Logo"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1478
+#: ../includes/shortcode-builder/builder.php:1476
 msgid "Show / Hide Company Logo . Default OFF"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1479
+#: ../includes/shortcode-builder/builder.php:1477
 msgid "View Type"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1480
+#: ../includes/shortcode-builder/builder.php:1478
 msgid "Image Mode"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1481
+#: ../includes/shortcode-builder/builder.php:1479
 msgid "Image Sizes"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1482
+#: ../includes/shortcode-builder/builder.php:1480
 msgid "Use pre registered image sizes by the theme you use, it will help to optimize the images."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1483
+#: ../includes/shortcode-builder/builder.php:1481
 msgid "Image Style"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1484
+#: ../includes/shortcode-builder/builder.php:1482
 msgid "Desktop Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1485
+#: ../includes/shortcode-builder/builder.php:1483
 msgid "Tablet Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1486
+#: ../includes/shortcode-builder/builder.php:1484
 msgid "Mobile Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1487
+#: ../includes/shortcode-builder/builder.php:1485
 msgid "Small Mobile Columns"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1488
+#: ../includes/shortcode-builder/builder.php:1486
 msgid "Theme"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1489
+#: ../includes/shortcode-builder/builder.php:1487
 msgid "Carousel Speed"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1490
+#: ../includes/shortcode-builder/builder.php:1488
 msgid "Count"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1491
+#: ../includes/shortcode-builder/builder.php:1489
 msgid "Set number of testimonial to display."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1492
+#: ../includes/shortcode-builder/builder.php:1490
 msgid "OrderBy"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1493
+#: ../includes/shortcode-builder/builder.php:1491
 msgid "Use preffered orderby attribute"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1494
+#: ../includes/shortcode-builder/builder.php:1492
 msgid "Order"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1495
+#: ../includes/shortcode-builder/builder.php:1493
 msgid "Set order attribute"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1497
+#: ../includes/shortcode-builder/builder.php:1495
 msgid "Select specific categories to show that specific categories testimonials."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1498
+#: ../includes/shortcode-builder/builder.php:1496
 msgid "Exclude Category"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1499
+#: ../includes/shortcode-builder/builder.php:1497
 msgid "Select specific categories to hide that specific categories testimonials."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1500
+#: ../includes/shortcode-builder/builder.php:1498
 msgid "Authors"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1501
+#: ../includes/shortcode-builder/builder.php:1499
 msgid "Select specific authors to show that specific authors testimonials."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1502
+#: ../includes/shortcode-builder/builder.php:1500
 msgid "Exclude Authors"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1503
+#: ../includes/shortcode-builder/builder.php:1501
 msgid "Select specific authors to hide that specific authors testimonials."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1505, ../includes/shortcode-builder/page.php:14
+#: ../includes/shortcode-builder/builder.php:1503, ../includes/shortcode-builder/page.php:14
 msgid "Preferences"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1506
+#: ../includes/shortcode-builder/builder.php:1504
 msgid "Save Preferences"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1507
+#: ../includes/shortcode-builder/builder.php:1505
 msgid "Custom CSS"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1508
+#: ../includes/shortcode-builder/builder.php:1506
 msgid "Enable Single Pages"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1509
+#: ../includes/shortcode-builder/builder.php:1507
 msgid "Read More Text"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1511
+#: ../includes/shortcode-builder/builder.php:1509
 msgid "Set company label"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1513, ../includes/shortcode-builder/builder.php:1515
+#: ../includes/shortcode-builder/builder.php:1511, ../includes/shortcode-builder/builder.php:1513
 msgid "Set designation label"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1514
+#: ../includes/shortcode-builder/builder.php:1512
 msgid "Loadmore Button Label"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1519
+#: ../includes/shortcode-builder/builder.php:1517
 msgid "Global settings which are going to work on the whole plugin."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1520
+#: ../includes/shortcode-builder/builder.php:1518
 msgid "All shortcodes"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1521
+#: ../includes/shortcode-builder/builder.php:1519
 msgid "Create New Shortcode"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1522
+#: ../includes/shortcode-builder/builder.php:1520
 msgid "Name"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1523
+#: ../includes/shortcode-builder/builder.php:1521
 msgid "Action"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1524
+#: ../includes/shortcode-builder/builder.php:1522
 msgid "Actions"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1526
+#: ../includes/shortcode-builder/builder.php:1524
 msgid "Clone"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1527
+#: ../includes/shortcode-builder/builder.php:1525
 msgid "Delete"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1528
+#: ../includes/shortcode-builder/builder.php:1526
 msgid "Delete All"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1529
+#: ../includes/shortcode-builder/builder.php:1527
 msgid "General Settings"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1530
+#: ../includes/shortcode-builder/builder.php:1528
 msgid "Style Settings"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1531
+#: ../includes/shortcode-builder/builder.php:1529
 msgid "Query Settings"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1532
+#: ../includes/shortcode-builder/builder.php:1530
 msgid "General"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1533
+#: ../includes/shortcode-builder/builder.php:1531
 msgid "Style"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1534
+#: ../includes/shortcode-builder/builder.php:1532
 msgid "Query"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1535
+#: ../includes/shortcode-builder/builder.php:1533
 msgid "Name of the Shortcode"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1536
+#: ../includes/shortcode-builder/builder.php:1534
 msgid "Save Shortcode"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1537
+#: ../includes/shortcode-builder/builder.php:1535
 msgid "Shortcode Name"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1539
+#: ../includes/shortcode-builder/builder.php:1537
 msgid "Enable Carousel Navs"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1540
+#: ../includes/shortcode-builder/builder.php:1538
 msgid "Enable carousel navs for this theme, it may not available for certain theme"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1542
+#: ../includes/shortcode-builder/builder.php:1540
 msgid "Carousel Navs Style"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1543
+#: ../includes/shortcode-builder/builder.php:1541
 msgid "Select carousel navs style, this is available for certain theme"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1545
+#: ../includes/shortcode-builder/builder.php:1543
 msgid "Nav Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1546
+#: ../includes/shortcode-builder/builder.php:1544
 msgid "Nav BG Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1547
+#: ../includes/shortcode-builder/builder.php:1545
 msgid "Nav Hover Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1548
+#: ../includes/shortcode-builder/builder.php:1546
 msgid "Nav Hover BG Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1550
+#: ../includes/shortcode-builder/builder.php:1548
 msgid "Enable Carousel Dots"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1551
+#: ../includes/shortcode-builder/builder.php:1549
 msgid "Enable carousel dots for this theme, it may not available for certain theme"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1553
+#: ../includes/shortcode-builder/builder.php:1551
 msgid "Enable Dynamic Dots"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1554
+#: ../includes/shortcode-builder/builder.php:1552
 msgid "Enable carousel dynamic dots for this theme."
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1556
+#: ../includes/shortcode-builder/builder.php:1554
 msgid "Dots Style"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1557
+#: ../includes/shortcode-builder/builder.php:1555
 msgid "Select carousel dots style, this is available for certain theme"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1559
+#: ../includes/shortcode-builder/builder.php:1557
 msgid "Dots Position"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1560
+#: ../includes/shortcode-builder/builder.php:1558
 msgid "Select carousel dots position, this is available for certain theme"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1562
+#: ../includes/shortcode-builder/builder.php:1560
 msgid "Dots Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1563
+#: ../includes/shortcode-builder/builder.php:1561
 msgid "Dots Active Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1565
+#: ../includes/shortcode-builder/builder.php:1563
 msgid "Filter Tab Style"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1566
+#: ../includes/shortcode-builder/builder.php:1564
 msgid "Select filters tab style"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1568
+#: ../includes/shortcode-builder/builder.php:1566
 msgid "Filter Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1569
+#: ../includes/shortcode-builder/builder.php:1567
 msgid "Filter BG Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1570
+#: ../includes/shortcode-builder/builder.php:1568
 msgid "Filter Border Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1572
+#: ../includes/shortcode-builder/builder.php:1570
 msgid "Filter Active Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1573
+#: ../includes/shortcode-builder/builder.php:1571
 msgid "Filter Active BG Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1574
+#: ../includes/shortcode-builder/builder.php:1572
 msgid "Filter Active Border Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1576
+#: ../includes/shortcode-builder/builder.php:1574
 msgid "Box Background Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1577
+#: ../includes/shortcode-builder/builder.php:1575
 msgid "Title Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1578
+#: ../includes/shortcode-builder/builder.php:1576
 msgid "Testimonial Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1579
+#: ../includes/shortcode-builder/builder.php:1577
 msgid "Read More Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1580
+#: ../includes/shortcode-builder/builder.php:1578
 msgid "Read More Hover Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1581
+#: ../includes/shortcode-builder/builder.php:1579
 msgid "Name Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1582
+#: ../includes/shortcode-builder/builder.php:1580
 msgid "Ratings Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1583
+#: ../includes/shortcode-builder/builder.php:1581
 msgid "Designation Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1584
+#: ../includes/shortcode-builder/builder.php:1582
 msgid "Company Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1585
+#: ../includes/shortcode-builder/builder.php:1583
 msgid "Info Color"
 msgstr ""
 
-#: ../includes/shortcode-builder/builder.php:1586
+#: ../includes/shortcode-builder/builder.php:1584
 msgid "Info Icon Color"
 msgstr ""
 
