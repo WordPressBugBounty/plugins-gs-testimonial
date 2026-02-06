@@ -25,7 +25,8 @@ class Sortable {
 				'menu_title'   => 'Sort Testimonials',
 				'menu_slug'    => 'sort_tax_item',
 				'is_taxonomy'  => true
-			]
+			],
+
 		];
 
 		new Term_Sort($sort_args);

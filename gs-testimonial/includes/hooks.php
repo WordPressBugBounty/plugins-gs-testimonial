@@ -34,7 +34,7 @@ class Hooks {
     
     function img_size_note($content) {
         global $post_type, $post;
-    
+
         if ($post_type == 'gs_testimonial') {
             if (!has_post_thumbnail($post->ID)) {
                 $content .= '<p>' . __('Recommended image size 400px X 400px for perfect view on various devices.', 'gs-testimonial') . '</p>';

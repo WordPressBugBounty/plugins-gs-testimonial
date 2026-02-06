@@ -10,6 +10,10 @@ $routes = [
 		'title' => __( 'Create New', 'gs-testimonial' )
 	],
 	[
+		'slug'  => '/import-export',
+		'title' => __('Import Export', 'gs-testimonial')
+	],
+	[
 		'slug'  => '/preferences',
 		'title' => __( 'Preferences', 'gs-testimonial' )
 	]

@@ -251,7 +251,8 @@ class Scripts {
             'gs-swiper',
             'gs-bootstrap-grid',
             'gs-font-awesome-5',
-            'gs-testimonial-public'
+            'gs-testimonial-public',
+            'gs-magnific-popup'
         ];
         return (array) apply_filters( 'gs_testimonial_public_style_all', $styles );
     }
@@ -264,7 +265,7 @@ class Scripts {
      * @return array List of publicly enqueuable scripts.
      */
     public function _get_public_script_all() {
-        $scripts = ['gs-swiper', 'gs-testimonial-public'];
+        $scripts = ['gs-swiper', 'gs-testimonial-public', 'gs-magnific-popup'];
         return (array) apply_filters( 'gs_testimonial_public_script_all', $scripts );
     }
 
@@ -364,7 +365,38 @@ class Scripts {
     }
 
     public function print_plugin_icon_css() {
-        echo '<style>#adminmenu .toplevel_page_gs-testimonial .wp-menu-image img,#adminmenu .menu-icon-gs_testimonial .wp-menu-image img{padding-top:7px;width:20px;opacity:.8;height:auto}#menu-posts-gs_testimonial li{clear:both}#menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gs-testimonial-plugins-help"]:after,#menu-posts-gs_testimonial li:nth-last-child(3) a:after{border-bottom:1px solid hsla(0,0%,100%,.2);display:block;float:left;margin:13px -15px 8px;content:"";width:calc(100% + 26px)}</style>';
+        echo '<style>
+		
+		#adminmenu .toplevel_page_gs-testimonial .wp-menu-image img,#adminmenu .menu-icon-gs_testimonial .wp-menu-image img{
+			padding-top:7px;
+			width:20px;
+			opacity:.8;
+			height:auto
+		}
+
+		#menu-posts-gs_testimonial li{
+		 	clear:both
+		 }
+		
+		 #menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gst-shortcodes"]:after,
+		  #menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gs-testimonial-contact"]:after
+		 ,#menu-posts-gs_testimonial li:nth-last-child(3) a:after{
+		   border-bottom:1px solid hsla(0,0%,100%,.2);
+		   display:block;float:left;
+		   margin:13px -15px 8px;
+		   content:"";
+		   width:calc(100% + 26px)
+		 }
+
+		 #menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gst-shortcodes#/import-export"]:after,
+		#menu-posts-gs_testimonial 
+			li:nth-last-child(3) a:after {
+				content: none !important;
+				display: none !important;
+				border: 0 !important;
+			}
+	
+		</style>';
     }
 
     /**
@@ -382,8 +414,16 @@ class Scripts {
         $this->wp_register_script_all( 'public' );
         // Enqueue for Single & Archive Pages
         if ( is_singular( 'gs_testimonial' ) || is_post_type_archive( 'gs_testimonial' ) || is_tax( ['gs_testimonial_category'] ) ) {
+            // if (gstm_fs()->can_use_premium_code__premium_only()) {
+            $this->add_dependency_styles( 'gs-testimonial-public', ['gs-magnific-popup'] );
+            $this->add_dependency_scripts( 'gs-testimonial-public', ['gs-magnific-popup'] );
+            // }
             wp_enqueue_style( 'gs-testimonial-public' );
         }
+        // if (gstm_fs()->can_use_premium_code__premium_only()) {
+        $this->add_dependency_styles( 'gs-testimonial-public', ['gs-magnific-popup'] );
+        $this->add_dependency_scripts( 'gs-testimonial-public', ['gs-magnific-popup'] );
+        // }
         // Maybe enqueue assets
         gsTestimonialAssetGenerator()->enqueue( gsTestimonialAssetGenerator()->get_current_page_id() );
         do_action( 'gs_testimonial_assets_loaded' );
@@ -392,9 +432,6 @@ class Scripts {
     public function admin_enqueue_scripts( $hook ) {
         global $post;
         $load_script = false;
-        if ( $hook == 'gs_testimonial_page_sort_gs_testimonial' ) {
-            $load_script = true;
-        }
         if ( $hook == 'gs_testimonial_page_sort_group_gs_testimonial' ) {
             $load_script = true;
         }

@@ -1,34 +1,32 @@
-﻿=== A WordPress Testimonial Plugin to Showcase Testimonial Slider, Testimonial Grid and More: Solid Testimonials ===
+﻿=== Solid Testimonials - Testimonial Slider, Video Testimonials & Customer Reviews ===
 Contributors: gsplugins, itszaman, samdani, freemius
 Donate link: https://www.paypal.com/donate/?hosted_button_id=K7K8YF4U3SCNQ
 Requires at least: 5.9
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.3.1
+Stable tag: 3.3.7
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Tags: testimonials, testimonial slider, customer reviews, social proof, testimonial showcase
 
-A Testimonial Plugin for Testimonial Showcase, Testimonial Slider and More
+Showcase and automate customer reviews with ease - sliders, grids, filters, and more to boost trust and sales.
 
 == Description ==
 
-**Solid Testimonials** is a powerful and versatile WordPress plugin designed to showcase client testimonials, customer reviews, and quotes in various captivating ways. This premium plugin offers an array of key features, including slider layouts and testimonial templates, making it easy to display testimonials on posts, pages, or custom templates. 
+**Solid Testimonials** is a powerful WordPress plugin for showcasing client testimonials, customer reviews, and quotes in elegant, responsive layouts.
 
-With its user-friendly Shortcode Generator settings panel, you can effortlessly create stunning testimonial showcases, while the live preview feature allows you to see changes in real time, ensuring fully responsive layouts and customizable styles.
+With multiple templates and slider designs, you can easily display testimonials on posts, pages, or custom templates. The intuitive **Shortcode Generator** and **live preview** let you create and customize layouts instantly - no coding required.
 
-Whether you have advanced coding skills or are a beginner, Solid Testimonials caters to all levels of expertise. The plugin includes a testimonial widget and a submission form with custom fields, allowing clients to submit their reviews directly on your website. 
+Collect reviews using the built-in **testimonial form**, import existing ones, and display them with full control over style and layout. Perfect for any skill level, Solid Testimonials helps you **build trust, boost engagement, and enhance your site’s credibility** with ease.
 
-Additionally, you can import reviews and product reviews seamlessly. The testimonial form is highly customizable, and the premium features offer extensive display options to suit your website's aesthetic. Enhance your site's credibility and visual appeal with Solid Testimonials, the ultimate solution for showcasing client testimonials with elegance and ease.
+🎬 [Live Demo](https://testimonial.gsplugins.com/) ⬆️ [Upgrade to PRO](https://www.gsplugins.com/product/gs-testimonial-slider/) 📚 [Documentation](https://docs.gsplugins.com/gs-testimonial-slider/) 🙋‍♂️ [Support](https://www.gsplugins.com/contact/)
 
-🎬 [Live Demo](https://testimonial.gsplugins.com) ⬆️ [Upgrade to PRO](https://www.gsplugins.com/product/gs-testimonial-slider) 📚 [Documentation](https://docs.gsplugins.com/gs-testimonial-slider) 🙋‍♂️ [Support](https://www.gsplugins.com/contact)
+[youtube https://www.youtube.com/watch?v=Fa27Y9WC2zA]
 
-https://www.youtube.com/watch?v=Fa27Y9WC2zA
-
-### Why are testimonials crucial for your business? 
+== Why are testimonials crucial for your business? ==
 Testimonials play a pivotal role in building trust and credibility among potential customers. With *Solid Testimonials*, you can effectively present these valuable testimonials on your website and continuously gather fresh reviews to reinforce your brand's reputation.
 
-### What makes Solid Testimonials stand out?
+== What makes Solid Testimonials stand out? ==
 * **Intuitive and User-Friendly**: Our testimonial plugin is designed to be simple yet powerful, allowing you to effortlessly manage and display customer testimonials according to your preferences.
 * **Versatile Showcasing Options**: Showcase Testimonials on any page, post, or custom template, seamlessly integrating into your website's design with testimonial blocks and testimonials by categories.
 * **Engaging Visuals**: Enjoy responsive layouts and customizable styles that complement your website's aesthetics, leaving a lasting impression on your visitors. Add testimonial sections, sidebar widget, and Reviews Feed to enhance engagement.
@@ -36,56 +34,39 @@ Testimonials play a pivotal role in building trust and credibility among potenti
 
 **Solid Testimonials** empowers you to harness the potential of real testimonials effectively, enhancing your website's credibility.
 
-Experience the difference of *Solid Testimonials* today and elevate your testimonial showcasing game with ease, complete with email notification and integration with Thrive Themes.
+Experience the difference of *Solid Testimonials* today and improve your testimonial showcasing with ease and compatibility with standard themes.
 
-### Comprehensive Plugin Features
-Experience the Power of Solid Testimonials with a Rich Array of Functionalities:
+== Comprehensive Plugin Features ==
 
-* Over 20 Unique and Stunning Designs to Choose From.
-* Versatile Testimonial Layouts: Grid, Slider, List, Filter, and Masonry.
-* Image Modes: Choose from Normal, Gray to Normal, Grey on Hover, or Always Gray.
-* Flexible Image Sizes: Thumbnail, Medium, Large, or Other Registered Sizes.
-* Diverse Author Image Styles: Square, Circle, Radius, Square Shadow, Circle Shadow, and Radius Shadow.
-* Fine-Tuned Controls: Show or Hide Designation, Company, Ratings, and Author Image.
-* Slider Mastery: Effortlessly Set Speed, Autoplay, Delay, and Pause On Hover.
-* User-Friendly Shortcode Generator Enhanced with Live Preview.
-* Seamlessly Integrates with Page Builders.
-* Intuitive Drag and Drop for Custom Testimonial Order.
-* Smart Category Display: Showcase Testimonials Based on Categories.
-* Efficient Filter and Query by Reviews Category.
-* Limit Testimonial Display as Needed.
-* Convenient Repeatable Social Media Meta Box.
-* Device-Specific Column Options for Optimal Responsiveness.
-* Customize with Ease: Add Your Own Custom CSS.
-* In-Depth Reviewer Information and Social Links.
-* Tailor Testimonial Length with Custom Character Limit.
-* Seamless Star Rating System.
-* Versatile Testimonial Ordering: ID, Title, Custom Order, Random, Date.
-* Choose Display Order: Descending or Ascending.
-* Hassle-Free Dummy Data Import or Deletion.
-* Effortless Shortcode Management: Edit, Clone, Delete.
-* Display Multiple Testimonial Shortcodes on a Single Page.
-* Lightning-Fast Loading for Enhanced Performance.
-* Smart Script Loading: Admin Pages and Where Shortcodes Exist.
-* Localization-Friendly: Replace Preferred Texts with Ease.
-* Responsive Showcase: Display Testimonials Beautifully Across Devices.
-* Seamless Integration with Standard WordPress Themes.
-* Unlimited Testimonials: Add as Many as Needed.
-* Developer-Friendly with Easy Customization Options.
-* Extensive Browser Compatibility: Modern Browsers Supported.
-* Valid W3C Markup Ensures Quality and Compliance.
-* Embed Anywhere with Simple Shortcodes, e.g., `[gs_testimonial id=2]`.
-* Quick Setup: User-Friendly Interface Requires No Special Knowledge.
-* Priority Email Support for Prompt Assistance.
-* Free Installation Service Available Upon Request.
-* Automatic Update Notifications Keep You Informed.
-* One-Click Auto Updates Directly from Your Dashboard.
-* Comprehensive Documentation and Dedicated Support.
-* And Many More Features to Explore and Utilize!
-* 🎬 [View live Demos &raquo;](https://testimonial.gsplugins.com)
-* ⬆️ [Upgrade to PRO &raquo;](https://www.gsplugins.com/product/gs-testimonial-slider)
+*Discover the Power of Solid Testimonials — Simple, Smart, and Stunning!*
 
-### Available fields to add info
+- 20+ Unique, Modern Designs.
+- Multiple Layouts: Grid, Slider, List, Masonry & Filter.
+- Image Modes: Normal, Gray, Hover Effects & More.
+- Customizable Image Sizes & Author Styles (Square, Circle, Shadow).
+- Toggle Display Elements: Designation, Company, Ratings, Author Image.
+- Advanced Slider Controls: Speed, Autoplay, Delay, Pause on Hover.
+- Shortcode Generator with Live Preview.
+- Drag & Drop to Reorder Testimonials.
+- Category-Based Filtering & Display.
+- Customizable Review Length & Star Ratings.
+- Responsive Columns for All Devices.
+- Add Custom CSS Easily.
+- Social Media Links for Each Reviewer.
+- Multiple Sorting Options: ID, Title, Date, Random, Custom.
+- Supports Unlimited Testimonials.
+- Works Seamlessly with Page Builders & WordPress Themes.
+- Fast Loading & Smart Script Handling.
+- Localization-Ready for Any Language.
+- One-Click Auto Updates & Priority Support.
+- Developer-Friendly with Clean, Valid Markup.
+- Easy Setup — No Coding Needed.
+* 🎬 [View live Demos &raquo;](https://testimonial.gsplugins.com/)
+* ⬆️ [Upgrade to PRO &raquo;](https://www.gsplugins.com/product/gs-testimonial-slider/)
+
+*Plus many more features to explore!*
+
+== Available fields to add info ==
 * **Testimonial Title**: Give each testimonial a distinct and meaningful title.
 * **Testimonial Details**: Showcase the heartwarming testimonials shared by your clients in all their glory.
 * **Testimonial Author Image**: Add personal touches with images of the testimonial authors.
@@ -104,85 +85,34 @@ Experience the Power of Solid Testimonials with a Rich Array of Functionalities:
 * **Company Logo**: Showcase logos of the companies or organizations associated with the testimonials.
 * **Social Profiles**: Include social icons with drag-and-drop reordering, allowing you to link to the testimonial authors’ social media profiles for additional authenticity and engagement.
 
-### Available Icons for Social Profiles
+== Available Icons for Social Profiles ==
 Linkedin, Facebook, Twitter, Google+, Youtube, Vimeo, Instagram, Dribbble, Behance, Pinterest, Flickr, Stumbleupon, Delicious, Reddit, VK, Vine, Github, Stack Overflow, Soundcloud, Envelope/Email, Link/Website, Skype, WhatsApp, Dropbox, WordPress, Tumblr, Foursquare, Xing, Lastfm, Hacker News, Yahoo, Trello, Steam, Deviantart, Feed, Renren, Spotify, twitch, Digg, SlideShare.
 
-### General Settings
-Start by navigating to **Solid Testimonials > Shortcode**. Here, you can either create a new shortcode or edit an existing one. Once inside, you’ll land on the **General Settings** page.
+== General Settings ==
 
-* ***General Settings Fields***:
-	* **Shortcode Name**: Assign a unique name to your shortcode.
-	* **Theme**: Choose from a variety of Grid & Carousel themes.
-	* **View Type**: Opt for Grid, Carousel, Masonry, or Filter layouts.
-	* **Image Mode**: Select image display preferences, including Gray options.
-	* **Images Size**: Pick from Thumbnail, Medium, Large, or other sizes.
-	* **Image Style**: Customize image shapes – Square, Circle, Radius, and shadow.
-	* **Columns Control**: Adjust columns for Desktop, Tablet, Mobile & Small Mobile (1 to 4 columns).
-	* **Show/Hide Controls**: Toggle Designation, Company, Ratings, and Image visibility.
-	* **Details Control**: Define the maximum character limit for Testimonial Details.
-* **Grid to Carousel/Filter/Masonry Features**: Unleash advanced features across 18 new templates within Grid, Carousel, List, Filter & Masonry themes.
-* ***Carousel Settings (When View Type is Carousel)***:
-	* **Carousel Speed**: Adjust the speed of the carousel transition.
-	* **Enable Autoplay**: Toggle automatic testimonial rotation.
-	* **Autoplay Delay**: Set the time interval between autoplay transitions.
-	* **Pause On Hover**: Enable pausing of autoplay on user hover.
-* ***Filter Settings (When View Type is Filter)***:
-	* **Filter All Text**: Modify the “Filter All” text option.
-* **Dynamic Preview**: As you customize settings on the ***left***, the ***right*** area displays a **real-time preview**.
+Go to **Solid Testimonials → Shortcode** to create or edit a shortcode. The **General Settings** tab controls layout, image styles, and display options.
 
-### Style Settings
-Easily Customize Your Testimonial Display:
+Choose your **theme, view type** (Grid, Carousel, Masonry, Filter), and adjust **image mode, size,** and **style**. Set columns for all devices, toggle **designation, company, ratings,** and limit text length.
 
-To begin, navigate to **Solid Testimonials > Shortcode**. Create a new shortcode or edit an existing one. Then, proceed to the ***2nd tab*** labeled **Style Settings**.
+Carousel view offers speed, autoplay, and pause settings, while Filter view lets you edit the “All” label. A **live preview** updates in real time as you make changes.
 
-* **Box Background Color**: Choose the background color for the testimonial box.
-* **Title Color**: Set the color for the testimonial title.
-* **Testimonial Color**: Define the color for the testimonial text.
-* **Read More Color**: Specify the color for the “Read More” link.
-* **Read More Hover Color**: Set the color when hovering over the “Read More” link.
-* **Rating Color**: Choose the color for star ratings.
-* **Name Color**: Define the color for the testimonial author’s name.
-* **Designation Color**: Set the color for the designation of the author.
-* **Company Color**: Specify the color for the author’s company name.
-* **Info Color**: Choose the color for additional information.
-* **Info Icon Color**: Set the color for icons used in additional information.
-* ***For Carousel View Type***:
-	* **Enable Carousel Navs**: Toggle navigation arrows for the carousel.
-	* **Enable Carousel Dots**: Toggle navigation dots for the carousel.
-	* **Carousel Navs Style**: Choose from One / Two / Three styles for carousel navigation arrows.
-	* **Dots Position**: Set the position of navigation dots – Bottom / Bottom Inside Left or Right.
-	* **Dots Style**: Choose from One / Two / Three styles for navigation dots.
-	* **Nav Color**: Define the color for navigation arrow icons.
-	* **Nav BG Color**: Set the background color for navigation arrow icons.
-	* **Nav Hover Color**: Choose the color when hovering over the navigation arrow icons.
-	* **Nav Hover BG Color**: Set the background color when hovering over navigation arrow icons.
-	* **Dots Color**: Define the color for navigation dots.
-* ***For Filter View Type***:
-	* **Filter Tab Style**: Choose from Style One / Two / Three / Four / Five for filter tabs.
-	* **Filter Color**: Define the color for filter text.
-	* **Filter BG Color**: Set the background color for filter tabs.
-	* **Filter Border Color**: Choose the color for filter tab borders.
-	* **Filter Active Color**: Specify the color for the active filter tab.
-	* **Filter Active BG Color**: Set the background color for the active filter tab.
-	* **Filter Active Border Color**: Choose the border color for the active filter tab.
+== Style Settings ==
 
-### Query Settings
-Begin by navigating to **Solid Testimonials > Shortcode**. Create a new shortcode or edit an existing one. Then proceed to the ***3rd tab*** labeled **Query Settings**.
+In **Solid Testimonials → Shortcode**, open or create a shortcode and go to the **Style Settings** tab to customize your testimonial design.
 
-* **Count**: Specify the maximum number of testimonials to be displayed. Use **-1** to show all reviews.
-* ***Order By***:
-	* **ID**: Sort testimonials based on their ID.
-	* **Title**: Arrange testimonials alphabetically by title.
-	* **Custom Order**: Define a specific order for testimonials.
-	* **Random**: Display testimonials in random order.
-	* **Date**: Sort testimonials by their date of creation.
-* ***Order***:
-	* **DESC (Descending)**: Arrange testimonials in descending order.
-	* **ASC (Ascending)**: Arrange testimonials in ascending order.
-* **Authors**: Select specific authors whose reviews you want to display.
-* **Exclude Authors**: Exclude certain authors’ reviews from the display.
-* **Category**: Choose a specific category to showcase testimonials from. Select from the available list of created categories.
-* **Exclude Category**: Hide testimonials associated with a particular category.
+Adjust **colors** for box background, title, text, author info, ratings, and “Read More” links.
+
+For **Carousel view**, control navigation arrows, dots, their styles, colors, and hover effects.
+For **Filter view**, style filter tabs — choose layouts, colors, backgrounds, and borders for both normal and active states.
+
+Easily fine-tune every visual detail to match your site’s branding.
+
+== Query Settings ==
+
+In **Solid Testimonials → Shortcode → Query Settings**, control which testimonials appear and how they’re ordered.
+
+Set the **number of testimonials** to display, choose **sorting options** (ID, Title, Date, Random, Custom), and define **order** (ASC or DESC). You can also **include or exclude authors and categories** to fine-tune which testimonials are shown.
+
 
 ### Preference ( Global Settings )
 Head to **Solid Testimonials > Shortcode** and select **Preferences**.
@@ -214,75 +144,73 @@ Select a theme, view type & other parameters. Shortcode will generate with id li
 `
 
 ### Documentation
-If you have any questions regarding the **Solid Testimonials** plugin and how to work with it, We recommend referring to our comprehensive online documentation. It provides detailed information and instructions to assist you in navigating and utilizing the plugin effectively. You can find the [Documentation](https://docs.gsplugins.com/gs-testimonial-slider) here.
+If you have any questions regarding the **Solid Testimonials** plugin and how to work with it, We recommend referring to our comprehensive online documentation. It provides detailed information and instructions to assist you in navigating and utilizing the plugin effectively. You can find the [Documentation](https://docs.gsplugins.com/gs-testimonial-slider/) here.
 
 ### Quick Support & Bug Reporting
-If you encounter any problems or discover bugs, please post them in our [Support](https://www.gsplugins.com/contact) channel. We aim to respond as soon as possible (excluding holidays). 
+If you encounter any problems or discover bugs, please post them in our [Support](https://www.gsplugins.com/contact/) channel. We aim to respond as soon as possible (excluding holidays). 
 
 ***Pro users are requested to contact our support channel for dedicated assistance.***
 
-🙋‍♂️ Alternatively, you can reach out to us through our [Support](https://www.gsplugins.com/contact) or [WordPress.org](https://wordpress.org/support/plugin/gs-testimonial/) support forum.
+🙋‍♂️ Alternatively, you can reach out to us through our [Support](https://www.gsplugins.com/contact/) or [WordPress.org](https://wordpress.org/support/plugin/gs-testimonial/) support forum.
 
 ### Development Team
-Crafted and Developed with Passion by [GS Plugins](https://www.gsplugins.com)
+Crafted and Developed with Passion by [GS Plugins](https://www.gsplugins.com/)
 
 ### Confused?
 
-🎬 [View live Demos &raquo;](https://testimonial.gsplugins.com)
-📚 [Documentation &raquo;](https://docs.gsplugins.com/gs-testimonial-slider)
+🎬 [View live Demos &raquo;](https://testimonial.gsplugins.com/)
+📚 [Documentation &raquo;](https://docs.gsplugins.com/gs-testimonial-slider/)
 
 
-### 🔥 You may like other plugins from [GS Plugins](https://www.gsplugins.com)
+### 🔥 You may like other plugins from [GS Plugins](https://www.gsplugins.com/)
 
-**[Logo Slider](https://wordpress.org/plugins/gs-logo-slider)** - Logo slider displays rotating logos of partners, clients, or sponsors, showcasing a business's relationships and endorsements.
+**[Logo Slider](https://wordpress.org/plugins/gs-logo-slider/)** - Logo slider displays rotating logos of partners, clients, or sponsors, showcasing a business's relationships and endorsements.
 
 **[Portfolio](https://wordpress.org/plugins/gs-portfolio/)** - Filterable Portfolio plugin for WordPress allows you to easily display and showcase your projects, highlighting your skills and abilities.
 
-**[Team Members](https://wordpress.org/plugins/gs-team-members)** - Build a Stunning Team Page or Section and Show off Your Team's Talents!
+**[Team Members](https://wordpress.org/plugins/gs-team-members/)** - Build a Stunning Team Page or Section and Show off Your Team's Talents!
 
-**[Projects](https://wordpress.org/plugins/gs-projects)** - Projects showcase displays detailed information including client reviews, ratings, galleries, and videos for a business's work.
+**[Projects](https://wordpress.org/plugins/gs-projects/)** - Projects showcase displays detailed information including client reviews, ratings, galleries, and videos for a business's work.
 
-**[Books Showcase](https://wordpress.org/plugins/gs-books-showcase)** - Books showcase displays detailed information including author, published date, reviews, ratings, and gallery, allowing users to easily find and explore books.
+**[Books Showcase](https://wordpress.org/plugins/gs-books-showcase/)** - Books showcase displays detailed information including author, published date, reviews, ratings, and gallery, allowing users to easily find and explore books.
 
-**[Coaches](https://wordpress.org/plugins/gs-coach)** - Coaches plugin displays coaches' experience, skills, reviews, ratings, and certifications, helping users find the right coach for their needs.
+**[Coaches](https://wordpress.org/plugins/gs-coach/)** - Coaches plugin displays coaches' experience, skills, reviews, ratings, and certifications, helping users find the right coach for their needs.
 
-**[Posts Grid](https://wordpress.org/plugins/posts-grid)** -  WordPress Posts Grid plugin displays the latest posts in an elegant grid format, allowing for easy navigation and quick access to new content on a website.
+**[Posts Grid](https://wordpress.org/plugins/posts-grid/)** -  WordPress Posts Grid plugin displays the latest posts in an elegant grid format, allowing for easy navigation and quick access to new content on a website.
 
-**[Posts Widget](https://wordpress.org/plugins/posts-widget)** -  WordPress Posts Widget plugin displays the latest posts in an elegant format on the sidebar or any widget area, allowing for easy navigation and quick access to new content on a website.
+**[Posts Widget](https://wordpress.org/plugins/posts-widget/)** -  WordPress Posts Widget plugin displays the latest posts in an elegant format on the sidebar or any widget area, allowing for easy navigation and quick access to new content on a website.
 
 ### 🎯 WooCommerce Plugins
 
-**[WooCommerce Products Slider](https://wordpress.org/plugins/gs-woocommerce-products-slider)** - WooCommerce Product Slider plugin displays products in a visually pleasing, sliding manner, making it easy for customers to browse and find the products they want on an online store.
+**[WooCommerce Products Slider](https://wordpress.org/plugins/gs-woocommerce-products-slider/)** - WooCommerce Product Slider plugin displays products in a visually pleasing, sliding manner, making it easy for customers to browse and find the products they want on an online store.
 
-**[WooCommerce Variation Swatches](https://wordpress.org/plugins/gs-woo-variation-swatches)** - WooCommerce Variation Swatches plugin replaces the default dropdown fields for variable products with visually appealing swatches, making it easier for customers to select product options and improve the overall shopping experience.
+**[WooCommerce Variation Swatches](https://wordpress.org/plugins/gs-woo-variation-swatches/)** - WooCommerce Variation Swatches plugin replaces the default dropdown fields for variable products with visually appealing swatches, making it easier for customers to select product options and improve the overall shopping experience.
 
-**[WooCommerce Brands](https://wordpress.org/plugins/gs-woo-brands)** - WooCommerce Brands taxonomy plugin allows for easy cataloging of products by adding a brand taxonomy, making it simple to organize and filter products on an online store.
+**[WooCommerce Brands](https://wordpress.org/plugins/gs-woo-brands/)** - WooCommerce Brands taxonomy plugin allows for easy cataloging of products by adding a brand taxonomy, making it simple to organize and filter products on an online store.
 
 ### 📣 Social Plugins
 
-**[Dribbble Portfolio](https://wordpress.org/plugins/gs-dribbble-portfolio)** - Dribbble Portfolio WP plugin enables you to display your Dribbble shots on your website in a portfolio layout, allowing you to showcase your design work to a wider audience.
+**[Dribbble Portfolio](https://wordpress.org/plugins/gs-dribbble-portfolio/)** - Dribbble Portfolio WP plugin enables you to display your Dribbble shots on your website in a portfolio layout, allowing you to showcase your design work to a wider audience.
 
-**[Behance Portfolio](https://wordpress.org/plugins/gs-behance-portfolio)** - Behance Portfolio WordPress plugin allows you to display your Behance projects on your website in a visually appealing layout, making it easy for your audience to view and appreciate your work.
+**[Behance Portfolio](https://wordpress.org/plugins/gs-behance-portfolio/)** - Behance Portfolio WordPress plugin allows you to display your Behance projects on your website in a visually appealing layout, making it easy for your audience to view and appreciate your work.
 
-**[Pinterest Portfolio](https://wordpress.org/plugins/gs-pinterest-portfolio)** - Pinterest plugin for WordPress allows you to display your Pinterest pins on your website, giving your audience a chance to view and interact with your boards, and potentially drive more traffic to your Pinterest profile.
+**[Pinterest Portfolio](https://wordpress.org/plugins/gs-pinterest-portfolio/)** - Pinterest plugin for WordPress allows you to display your Pinterest pins on your website, giving your audience a chance to view and interact with your boards, and potentially drive more traffic to your Pinterest profile.
 
-**[Instagram Portfolio](https://wordpress.org/plugins/gs-instagram-portfolio/)** - Instagram plugin for WordPress allows you to display your Instagram posts on your website, making it easy for visitors to view and interact with your content and also to increase engagement on your website.
+**[Portfolio - Envato](https://wordpress.org/plugins/gs-envato-portfolio/)** - Envato Portfolio Plugin allows you to display your Themeforest and Codecanyon items on your website, showcasing your digital products and making them easily accessible to potential customers.
 
-**[Portfolio - Envato](https://wordpress.org/plugins/gs-envato-portfolio)** - Envato Portfolio Plugin allows you to display your Themeforest and Codecanyon items on your website, showcasing your digital products and making them easily accessible to potential customers.
-
-**[Youtube Gallery](https://wordpress.org/plugins/gs-youtube-gallery)** - YouTube Gallery plugin allows you to display videos from a YouTube channel or playlist on your website, creating a visually appealing gallery and making it easy for visitors to access and watch your videos.
+**[Youtube Gallery](https://wordpress.org/plugins/gs-youtube-gallery/)** - YouTube Gallery plugin allows you to display videos from a YouTube channel or playlist on your website, creating a visually appealing gallery and making it easy for visitors to access and watch your videos.
 
 ### 🏆 Branding Plugin
 
-**[Custom Login](https://wordpress.org/plugins/gs-custom-login)** - GS Custom Login allows you to customize the WordPress login screen, providing an easy way to create a unique and visually appealing login experience for your website users.
+**[Custom Login](https://wordpress.org/plugins/gs-custom-login/)** - GS Custom Login allows you to customize the WordPress login screen, providing an easy way to create a unique and visually appealing login experience for your website users.
 
-**[PowerUp](https://wordpress.org/plugins/powerup)** - Enhance Your WordPress Experience with the Ultimate Security & Convenience Solution - Hide Admin Bar, Login & Logout Redirection, Disable Comments & Restrict WP-Admin Module.
+**[PowerUp](https://wordpress.org/plugins/powerup/)** - Enhance Your WordPress Experience with the Ultimate Security & Convenience Solution - Hide Admin Bar, Login & Logout Redirection, Disable Comments & Restrict WP-Admin Module.
 
 == Installation ==
 
 Install the Plugin with Ease: Step-by-Step Guide:
 
-* Get visual assistance and a detailed usage guide by clicking on the **[Visual Installation & Usage Guide &raquo;](https://docs.gsplugins.com/gs-testimonial-slider)**
+* Get visual assistance and a detailed usage guide by clicking on the **[Visual Installation & Usage Guide &raquo;](https://docs.gsplugins.com/gs-testimonial-slider/)**
 
 = Install using the Search Plugin option: =
 - Go to the WordPress Admin panel
@@ -323,7 +251,7 @@ To add a testimonial to the plugin, follow these steps:
 - Add *Social Profile Links*, such as LinkedIn, Twitter, Facebook, Google+, YouTube, and their website.
 - Make sure to include the full URL for each social link, starting with **http://** or **https://**.
 - Finally, hit the ***Publish*** button.
-- You can check [Add New Testimonial section &raquo;](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/add-new-testimonial) for visual explanation.
+- You can check [Add New Testimonial section &raquo;](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/add-new-testimonial/) for visual explanation.
 
 = What is the recommended dimension for the Author's image? =
 For optimal display on various devices, it's recommended to use an image size of *300px X 300px* for the author's image. WordPress will automatically create different sizes & you can select images size to thumbnail/medium/large when creating a shortcode.
@@ -343,7 +271,7 @@ Yes, you can easily add social media links using the plugin. It offers 40 differ
 = How can I add the author image to the Solid Testimonials WordPress plugin? =
 You can add Testimonial Author Image in the **Featured Image** field. *Add a picture of the reviewer who wrote the testimonial.*
 
-= Does the Testimonail plugin have a shortcode option? =
+= Does the Testimonial plugin have a shortcode option? =
 Yes, the plugin offers a shortcode feature to display testimonials on your website. Generate shortcode like 
 `
 [gs_testimonial id=1]
@@ -351,7 +279,7 @@ Yes, the plugin offers a shortcode feature to display testimonials on your websi
 
 You have a choice of 20+ different themes, including Grid, Slider, List, Filter, and Masonry.
 
-For more information on using the shortcode attributes, check out the [Shortcode Usage Guide](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/create-new-shortcode)
+For more information on using the shortcode attributes, check out the [Shortcode Usage Guide](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/create-new-shortcode/)
 
 = How many themes does the Solid Testimonials Plugin offer? =
 The *Solid Testimonials* Plugin offers 20+ different themes, including Grid, Slider, List, Filter, and Masonry.
@@ -375,18 +303,18 @@ This plugin offers a comprehensive list of information to showcase your reviews 
 - Company Logo
 - Social Profiles. 40 Social Icons with the option to add links (Drag and drop reordering available)
 
-Learn more with the [Visual Guide](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/add-new-testimonial)
+Learn more with the [Visual Guide](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/add-new-testimonial/)
 
 = How many testimonials can I add using the plugin? = 
 There is no limit to the number. You can easily add, edit, delete, organize, and even reorder them with a simple drag-and-drop feature.
 
 = How to generate Shortcodes? =
 - To create a new shortcode, go to **Solid Testimonials > Shortcodes**, and click **Create New** at the top right corner.
-- Set your preferred settings for [General Settings](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/general-settings), [Style Settings](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/style-settings), and [Query Settings](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/query-settings).
+- Set your preferred settings for [General Settings](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/general-settings/), [Style Settings](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/style-settings/), and [Query Settings](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/query-settings/).
 - After giving the shortcode a name, save it.
 - Simply copy the generated shortcode and paste it wherever you want to display it.
 
-Learn more with the [Visual Guide](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/create-new-shortcode)
+Learn more with the [Visual Guide](https://docs.gsplugins.com/gs-testimonial-slider/manage-the-testimonials/create-new-shortcode/)
 
 = How can I edit, duplicate, or delete a shortcode? =
 To edit a shortcode, you can change the view, switch on/off controls, change colors, or set a preferred query, and don't forget to save your changes.
@@ -399,7 +327,7 @@ Deleting a shortcode is straightforward, but be cautious before hitting the dele
 
 To override templates in *Solid Testimonials*, follow these steps:
 
-- Go to the [Template Override](https://docs.gsplugins.com/gs-testimonial-slider/template-override) documentation page.
+- Go to the [Template Override](https://docs.gsplugins.com/gs-testimonial-slider/template-override/) documentation page.
 - This section provides comprehensive guidance on how to customize and override templates according to your specific requirements.
 - Learn how to modify templates to match your website’s design or functionality needs.
 - Find detailed instructions, examples, and code snippets to help you seamlessly override templates.
@@ -448,7 +376,7 @@ The **Solid Testimonials** plugin is compatible with Elementor. To use *Testimon
 - You can also **create** a new shortcode from here which will also open in a new tab.
 - Publish / Update the page / Post & check the front for *Solid Testimonials*.
 
-[Check the Elementor doc with visuals](https://docs.gsplugins.com/gs-testimonial-slider/page-builder-support/elementor).
+[Check the Elementor doc with visuals](https://docs.gsplugins.com/gs-testimonial-slider/page-builder-support/elementor/).
 
 = How to use Solid Testimonials in WPBakery / formally Visual Composer? =
 
@@ -465,7 +393,7 @@ The **Solid Testimonials** plugin is compatible with Elementor. To use *Testimon
 
 ** If you’re working with **Frontend Editor**, select from premade shortcodes & *save changes* to see the live action.
 
-[Refer to visuals in WPBakery docs](https://docs.gsplugins.com/gs-testimonial-slider/page-builder-support/wpbakery).
+[Refer to visuals in WPBakery docs](https://docs.gsplugins.com/gs-testimonial-slider/page-builder-support/wpbakery/).
 
 = How to use Solid Testimonials in Beaver Builder? =
 
@@ -507,7 +435,7 @@ The **Solid Testimonials** plugin is fully compatible with UX Builder – Flatso
 - **Insert HTML**: Within the **Content** section, you’ll find the **HTML** element. Select this option.
 - **Paste Testimonial Shortcode**: Now, simply paste the shortcode for your *Solid Testimonials* inside the HTML element.
 
-[Check UX Builder – Flatsome doc with visuals](https://docs.gsplugins.com/gs-testimonial-slider/page-builder-support/ux-builder-flatsome).
+[Check UX Builder – Flatsome doc with visuals](https://docs.gsplugins.com/gs-testimonial-slider/page-builder-support/ux-builder-flatsome/).
 
 = How to use Solid Testimonials in TagDiv – Newspaper? =
 
@@ -565,6 +493,33 @@ Don't miss out on these proven benefits! Incorporate customer testimonials into 
 16. Query Settings (3rd Tab). Check documentation for more Query Controls.
 
 == Changelog ==
+= Version 3.3.7 - Jan 29, 2026 =
+* [Added]: Card Elements Visibility.
+
+= Version 3.3.6 - Jan 25, 2026 =
+* [Added]: Export Import Features.
+* [Added]: Popup Visibility.
+* [Added]: Popup Elements Reorder Option.
+* [Added]: Include Exclude Tabs for Categories & Tags.
+
+= Version 3.3.5 - Jan 18, 2026 =
+* [Fixed]: Popup Quick Fix.
+
+= Version 3.3.4 - Jan 18, 2026 =
+* [Fixed]: Popup Template Issue.
+* [Updated]: Sort Order.
+
+= Version 3.3.3 - Jan 14, 2026 =
+* [Added]: Show/Hide Switcher for **Read More** when **Allow HTML** is enabled.
+* [Fixed]: Popup Scrolling Conflicts with the BuddyBoss Theme.
+* [Updated]: Details Control unlock for free users.
+* [Updated]: Column Component in General Settings.
+* [Updated]: Font Family to Inherit as Default.
+* [Updated]: Freemius SDK 2.13.0
+
+= Version 3.3.2 - Nov 11, 2025 =
+* [Fixed]: File Name Uncaught Error.
+
 = Version 3.3.1 - Apr 29, 2025 =
 * [Fixed]: Patchstack Report.
 
@@ -802,7 +757,34 @@ Don't miss out on these proven benefits! Incorporate customer testimonials into 
 = version 1.0 =
 * Initial release
 
-== Upgrade notice ==
+== Upgrade Notice ==
+= Version 3.3.7 - Jan 29, 2026 =
+* [Added]: Card Elements Visibility.
+
+= Version 3.3.6 - Jan 25, 2026 =
+* [Added]: Export Import Features.
+* [Added]: Popup Visibility
+* [Added]: Popup Elements Reorder Option.
+* [Added]: Include Exclude Tabs for Categories & Tags.
+
+= Version 3.3.5 - Jan 18, 2026 =
+* [Fixed]: Popup Quick Fix.
+
+= Version 3.3.4 - Jan 18, 2026 =
+* [Fixed]: Popup Template Issue.
+* [Updated]: Sort Order.
+
+= Version 3.3.3 - Jan 14, 2026 =
+* [Added]: Show/Hide Switcher for **Read More** when **Allow HTML** is enabled.
+* [Fixed]: Popup Scrolling Conflicts with the BuddyBoss Theme.
+* [Updated]: Details Control unlock for free users.
+* [Updated]: Column Component in General Settings.
+* [Updated]: Font Family to Inherit as Default.
+* [Updated]: Freemius SDK 2.13.0
+
+= Version 3.3.2 - Nov 11, 2025 =
+* [Fixed]: File Name Uncaught Error.
+
 = Version 3.3.1 - Apr 29, 2025 =
 * [Fixed]: Patchstack Report.
 

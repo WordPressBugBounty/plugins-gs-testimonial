@@ -41,15 +41,11 @@ if ( $gs_t_loop->have_posts() ) {
 					<div class="testimonial-box has-shadow">
 
 						<!-- Testimonial Title -->
-						<?php 
-        if ( $testi_title && $shortcode_settings['show_title'] ) {
-            ?>
-							<h3 class="box-tm-title"><?php 
-            echo esc_html( $testi_title );
-            ?></h3>
-						<?php 
-        }
-        ?>
+							<h3 class="box-tm-title  <?php 
+        echo esc_attr( gstm_get_visibility_class( 'gstm_card_title', $card_visibility_settings ) );
+        ?>"><?php 
+        echo esc_html( $testi_title );
+        ?></h3>
 
 						<!-- Testimonial Content -->
 						<?php 
@@ -58,7 +54,12 @@ if ( $gs_t_loop->have_posts() ) {
 
 						<!-- Rating -->
 						<?php 
-        if ( $shortcode_settings['ratings'] && !empty( $rating ) ) {
+        if ( !empty( $rating ) ) {
+            ?>
+							<div class="<?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_ratings', $card_visibility_settings ) );
+            ?>">
+							<?php 
             $args = array(
                 'rating' => $rating,
                 'type'   => 'rating',
@@ -66,6 +67,9 @@ if ( $gs_t_loop->have_posts() ) {
                 'echo'   => true,
             );
             wp_star_rating( $args );
+            ?>
+							</div>
+					<?php 
         }
         ?>
 
@@ -77,9 +81,11 @@ if ( $gs_t_loop->have_posts() ) {
 
 						<!-- Testimonial Image -->
 						<?php 
-        if ( has_post_thumbnail() && $shortcode_settings['image'] ) {
+        if ( has_post_thumbnail() ) {
             ?>
-							<div class="box-image"><?php 
+							<div class="box-image <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_reviewer_image', $card_visibility_settings ) );
+            ?>"><?php 
             the_post_thumbnail( $shortcode_settings['imageSize'] );
             ?></div>
 						<?php 
@@ -89,16 +95,20 @@ if ( $gs_t_loop->have_posts() ) {
 						<div class="gs-tai-client">
 
 							<!-- Testimonial Name -->
-							<h4 class="box-client-name"><?php 
+							<h4 class="box-client-name <?php 
+        echo esc_attr( gstm_get_visibility_class( 'gstm_card_reviewer_name', $card_visibility_settings ) );
+        ?>"><?php 
         echo esc_html( $client_name );
         ?></h4>
 
 							<!-- Client Designation -->
 							<?php 
-        if ( !empty( $designation ) && $shortcode_settings['show_designation'] ) {
+        if ( !empty( $designation ) ) {
             ?>
 								<div class="box-desiginfo">
-									<span class="box-design-name"><?php 
+									<span class="box-design-name <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_reviewer_designation', $card_visibility_settings ) );
+            ?>"><?php 
             echo esc_html( $designation );
             ?></span>
 								</div>
@@ -130,17 +140,21 @@ if ( $gs_t_loop->have_posts() ) {
 					</div> <!-- End of testimonial-author-info -->
 
 					<?php 
+        // if ( gstm_fs()->can_use_premium_code__premium_only() ) {
+        include Template_Loader::locate_template( 'partials/gs-popup-content.php' );
+        // }
         ?>
 
 				</div> <!-- End of gs_testimonial_single -->
 
 			<?php 
     }
+    wp_reset_postdata();
     ?>
 		</div>
 	<?php 
 } else {
-    echo esc_html( 'No Testimonial Added!', 'gs-testimonial' );
+    echo esc_html__( 'No Testimonial Added!', 'gs-testimonial' );
 }
 wp_reset_query();
 ?>

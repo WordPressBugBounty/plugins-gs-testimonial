@@ -21,7 +21,8 @@ $classmaps = [
 	'Upgrade'            => 'includes/shortcode-builder/upgrade.php',
 	'Integrations'       => 'includes/integrations/integrations.php',
 	'Shortcode'          => 'includes/shortcode.php',
-	'Hooks'              => 'includes/hooks.php'
+	'Hooks'              => 'includes/hooks.php',
+	'Import_Export'      => 'includes/import-export.php'
 ];
 
 return $classmaps;

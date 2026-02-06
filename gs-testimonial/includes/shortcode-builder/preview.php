@@ -21,7 +21,9 @@
                 
                 </div>
 
-            <?php endwhile; else: ?>
+            <?php endwhile;
+            wp_reset_postdata();
+        else: ?>
 
                 <div class="gs-shortcode-preview--wrapper something-wrong">
 

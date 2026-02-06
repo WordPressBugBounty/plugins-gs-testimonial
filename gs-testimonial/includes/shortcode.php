@@ -87,6 +87,7 @@ class Shortcode {
                 $view_type = 'grid';
             }
         }
+        $is_popup_enabled = true;
         $container_classes = [
             'gs_testimonial_container',
             $theme,
@@ -95,19 +96,23 @@ class Shortcode {
             'image-style-' . $image_style
         ];
         $gs_row_classes = ['gs-roow'];
+        $container_classes[] = 'gstm-has-popup';
+        if ( $theme == 'grid_style7' ) {
+            $container_classes[] = 'gstm-has-video-popup';
+        }
         if ( gstm_fs()->can_use_premium_code__premium_only() && $view_type != 'masonry' ) {
-            $is_popup_enabled = true;
-            if ( $is_popup_enabled ) {
-                $container_classes[] = 'gstm-has-popup';
-            }
-            if ( $theme == 'grid_style7' ) {
-                $container_classes[] = 'gstm-has-video-popup';
-            }
+            // $is_popup_enabled = true;
+            // if ( $is_popup_enabled ) {
+            // 	$container_classes[] = 'gstm-has-popup';
+            // }
+            // if ( $theme == 'grid_style7' ) {
+            // 	$container_classes[] = 'gstm-has-video-popup';
+            // }
             if ( $theme == 'grid_style4' || $theme == 'grid_style11' ) {
                 $container_classes[] = 'gstm-multi-bg-color';
             }
         } else {
-            $is_popup_enabled = false;
+            // $is_popup_enabled = true;
         }
         if ( $view_type == 'carousel' ) {
             $container_classes[] = 'gstm-has-carousel-swiper';
@@ -137,7 +142,6 @@ class Shortcode {
 			data-carousel-settings='<?php 
         echo json_encode( get_carousel_settings( $shortcode_settings ) );
         ?>'
-			
 		>
 
 		<?php 

@@ -33,8 +33,8 @@ class Columns {
         $new_columns = [
             'cb'                               => $columns['cb'],
             'title'                            => $columns['title'],
-            'featured_image'                   => __( 'Author Image', 'gs-testimonial' ),
-            'gs_t_client_name'                 => __( 'Author Name', 'gs-testimonial' ),
+            'featured_image'                   => __( 'Reviewer Image', 'gs-testimonial' ),
+            'gs_t_client_name'                 => __( 'Reviewer Name', 'gs-testimonial' ),
             'gs_t_client_company'              => __( 'Company', 'gs-testimonial' ),
             'gs_t_client_design'               => __( 'Designation', 'gs-testimonial' ),
             'gs_t_client_rating'               => __( 'Rating', 'gs-testimonial' ),

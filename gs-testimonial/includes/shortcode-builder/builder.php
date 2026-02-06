@@ -25,7 +25,31 @@ final class Builder {
         add_action( 'wp_ajax_gstm_save_shortcode_pref', array($this, 'save_shortcode_pref') );
         add_action( 'template_include', array($this, 'populate_shortcode_preview') );
         add_action( 'show_admin_bar', array($this, 'hide_admin_bar_from_preview') );
+        add_action( 'wp_ajax_gstm_update_popup_visibility_order', array($this, 'gstm_update_popup_visibility_order') );
+        add_action( 'wp_ajax_save_card_visibility', array($this, 'save_card_visibility') );
         return $this;
+    }
+
+    public function save_card_visibility() {
+        check_ajax_referer( 'gstm_update_visibility_order', '_ajax_nonce' );
+        if ( empty( $_POST['order'] ) || !is_array( $_POST['order'] ) ) {
+            wp_send_json_error( 'Invalid order data' );
+        }
+        $shortcode_id = $_POST['shortcode_id'] ?? '';
+        $card_visibility = $_POST['order'];
+        update_option( 'gstm_card_visibility_' . $shortcode_id, $card_visibility );
+        wp_send_json_success( 'Card order saved' );
+    }
+
+    public function gstm_update_popup_visibility_order() {
+        check_ajax_referer( 'gstm_update_visibility_order', '_ajax_nonce' );
+        if ( empty( $_POST['order'] ) || !is_array( $_POST['order'] ) ) {
+            wp_send_json_error( 'Invalid order data' );
+        }
+        $shortcode_id = $_POST['shortcode_id'] ?? '';
+        $popup_visibility = $_POST['order'];
+        update_option( 'gstm_popup_visibility_order_' . $shortcode_id, $popup_visibility );
+        wp_send_json_success( 'Popup order saved' );
     }
 
     public function register_sub_menu() {
@@ -69,6 +93,8 @@ final class Builder {
                 'save_shortcode_pref'          => wp_create_nonce( '_gstm_save_shortcode_pref_gs_' ),
                 'sync_data'                    => wp_create_nonce( '_gstm_sync_data_gs_' ),
                 "import_gstm_demo"             => wp_create_nonce( "_gstm_simport_gstm_demo_gs_" ),
+                "import_gstm_data"             => wp_create_nonce( "_gstm_import_gstm_data_" ),
+                "export_gstm_data"             => wp_create_nonce( "_gstm_export_gstm_data_" ),
             ),
             'ajaxurl'  => admin_url( 'admin-ajax.php' ),
             'adminurl' => admin_url(),
@@ -91,6 +117,12 @@ final class Builder {
             true
         );
         wp_localize_script( 'gs-testimonial-shortcode-builder', 'GSTM_DATA', $data );
+        wp_localize_script( 'gs-testimonial-shortcode-builder', 'GSTM_VISIBILITY_ORDER_DATA', [
+            'ajaxurl'      => admin_url( 'admin-ajax.php' ),
+            'nonce'        => wp_create_nonce( 'gstm_update_visibility_order' ),
+            'popup_action' => 'gstm_update_popup_visibility_order',
+            'card_action'  => 'gstm_update_card_visibility_order',
+        ] );
     }
 
     public function preview_scripts( $hook ) {
@@ -153,6 +185,7 @@ final class Builder {
      * @return array The predefined default settings for each shortcode.
      */
     public function get_shortcode_default_settings() {
+        $shortcode_id = ( isset( $_GET['id'] ) ? $_GET['id'] : '' );
         $defaults = [
             'count'                        => -1,
             'theme'                        => 'grid_style1',
@@ -164,13 +197,9 @@ final class Builder {
             'columns_mobile'               => '6',
             'columns_small_mobile'         => '12',
             'speed'                        => 2000,
-            'show_title'                   => true,
             'allow_html'                   => false,
             'show_popup_rating'            => true,
             'show_published_date'          => true,
-            'show_designation'             => true,
-            'ratings'                      => true,
-            'image'                        => true,
             'isAutoplay'                   => true,
             'autoplay_delay'               => 2500,
             'pause_on_hover'               => true,
@@ -212,13 +241,15 @@ final class Builder {
             'filter_cat_pos'               => 'cat_center',
             'categories'                   => [],
             'gs_tm_details_contl'          => 100,
+            'gs_tm_readmore'               => true,
             'gs_tm_line_contl'             => 5,
             'reverse_direction'            => false,
-            'company_logo'                 => true,
-            'show_company'                 => false,
             'excludeCategories'            => [],
             'authors'                      => [],
             'excludeAuthors'               => [],
+            'popup_visibility_settings'    => $this->get_popup_visibility_defaults( $shortcode_id ),
+            'card_visibility_settings'     => $this->get_card_visibility_defaults( '', $shortcode_id ),
+            'gs_filter_by'                 => 'cats',
         ];
         return $defaults;
     }
@@ -527,8 +558,19 @@ final class Builder {
             'filters_tab_style'      => $this->get_filters_tab_styles(),
             'categories'             => $this->get_testimonial_terms(),
             'authors'                => [],
+            'gs_filter_by'           => $this->gs_filter_by(),
         ];
         return $options;
+    }
+
+    public function gs_filter_by() {
+        return [[
+            'label' => __( 'Category', 'gs-testimonial' ),
+            'value' => 'cats',
+        ], [
+            'label' => __( 'Ratings', 'gs-testimonial' ),
+            'value' => 'rats',
+        ]];
     }
 
     public function get_authors_premium_only() {
@@ -997,6 +1039,7 @@ final class Builder {
     }
 
     public function validate_shortcode_settings( $shortcode_settings ) {
+        $shortcode_id = absint( $_GET['id'] ?? 0 );
         $shortcode_settings = shortcode_atts( $this->get_shortcode_default_settings(), $shortcode_settings );
         $shortcode_settings['count'] = intval( $shortcode_settings['count'] );
         $shortcode_settings['theme'] = sanitize_text_field( $shortcode_settings['theme'] );
@@ -1006,13 +1049,9 @@ final class Builder {
         $shortcode_settings['columns_mobile'] = sanitize_text_field( $shortcode_settings['columns_mobile'] );
         $shortcode_settings['columns_small_mobile'] = sanitize_text_field( $shortcode_settings['columns_small_mobile'] );
         $shortcode_settings['speed'] = intval( $shortcode_settings['speed'] );
-        $shortcode_settings['show_title'] = wp_validate_boolean( $shortcode_settings['show_title'] );
         $shortcode_settings['allow_html'] = wp_validate_boolean( $shortcode_settings['allow_html'] );
         $shortcode_settings['show_popup_rating'] = wp_validate_boolean( $shortcode_settings['show_popup_rating'] );
         $shortcode_settings['show_published_date'] = wp_validate_boolean( $shortcode_settings['show_published_date'] );
-        $shortcode_settings['show_designation'] = wp_validate_boolean( $shortcode_settings['show_designation'] );
-        $shortcode_settings['ratings'] = wp_validate_boolean( $shortcode_settings['ratings'] );
-        $shortcode_settings['image'] = wp_validate_boolean( $shortcode_settings['image'] );
         $shortcode_settings['isAutoplay'] = wp_validate_boolean( $shortcode_settings['isAutoplay'] );
         $shortcode_settings['autoplay_delay'] = intval( $shortcode_settings['autoplay_delay'] );
         $shortcode_settings['filter_all_text'] = sanitize_text_field( $shortcode_settings['filter_all_text'] );
@@ -1052,15 +1091,17 @@ final class Builder {
         $shortcode_settings['order'] = sanitize_text_field( $shortcode_settings['order'] );
         $shortcode_settings['filter_cat_pos'] = sanitize_text_field( $shortcode_settings['filter_cat_pos'] );
         if ( gstm_fs()->is_paying_or_trial() ) {
-            $shortcode_settings['company_logo'] = wp_validate_boolean( $shortcode_settings['company_logo'] );
             $shortcode_settings['reverse_direction'] = wp_validate_boolean( $shortcode_settings['reverse_direction'] );
-            $shortcode_settings['show_company'] = wp_validate_boolean( $shortcode_settings['show_company'] );
             $shortcode_settings['gs_tm_details_contl'] = intval( $shortcode_settings['gs_tm_details_contl'] );
             $shortcode_settings['gs_tm_line_contl'] = intval( $shortcode_settings['gs_tm_line_contl'] );
             $validated_data['excludeCategories'] = array_map( 'intval', $shortcode_settings['excludeCategories'] );
             $validated_data['authors'] = array_map( 'sanitize_text_field', $shortcode_settings['authors'] );
             $validated_data['excludeAuthors'] = array_map( 'sanitize_text_field', $shortcode_settings['excludeAuthors'] );
+            $shortcode_settings['gs_tm_readmore'] = wp_validate_boolean( $shortcode_settings['gs_tm_readmore'] );
         }
+        $shortcode_settings['popup_visibility_settings'] = $this->validate_popup_fields_visibility_settings( $shortcode_settings['popup_visibility_settings'] );
+        $shortcode_settings['card_visibility_settings'] = $this->validate_card_fields_visibility_settings( $shortcode_settings['card_visibility_settings'], $shortcode_settings['theme'] );
+        $shortcode_settings['gs_filter_by'] = sanitize_text_field( $shortcode_settings['gs_filter_by'] );
         return (array) $shortcode_settings;
     }
 
@@ -1209,6 +1250,257 @@ final class Builder {
         return $shortcodes;
     }
 
+    public function get_card_visibility_defaults( $theme = '', $shortcode_id = 0 ) {
+        $shortcode_id = absint( $shortcode_id );
+        $order_data = get_option( 'gstm_card_visibility_' . $shortcode_id, [] );
+        if ( is_array( $order_data ) && !empty( $order_data ) ) {
+            return $order_data;
+        }
+        $fields = [
+            'gstm_card_title'                => [
+                'translation_key'  => 'gstm-card-title',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_description'          => [
+                'translation_key'  => 'gstm-card-description',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_ratings'              => [
+                'translation_key'  => 'gstm-card-ratings',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_social_icons'         => [
+                'translation_key'  => 'gstm-card-social-icons',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_reviewer_name'        => [
+                'translation_key'  => 'gstm-card-reviewer-name',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_reviewer_image'       => [
+                'translation_key'  => 'gstm-card-reviewer-image',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_reviewer_designation' => [
+                'translation_key'  => 'gstm-card-reviewer-designation',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_company_name'         => [
+                'translation_key'  => 'gstm-card-company-name',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_company_image'        => [
+                'translation_key'  => 'gstm-card-company-image',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_mobile'               => [
+                'translation_key'  => 'gstm-card-mobile',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_email'                => [
+                'translation_key'  => 'gstm-card-email',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_address'              => [
+                'translation_key'  => 'gstm-card-address',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_website'              => [
+                'translation_key'  => 'gstm-card-website-url',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_card_bg_icon'              => [
+                'translation_key'  => 'gstm-card-bg-icon',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+        ];
+        $theme = ( isset( $theme ) ? trim( (string) $theme ) : '' );
+        return $fields;
+    }
+
+    public function get_popup_visibility_defaults( $shortcode_id = 0 ) {
+        $shortcode_id = absint( $shortcode_id );
+        $order_data = get_option( 'gstm_popup_visibility_order_' . $shortcode_id, [] );
+        if ( is_array( $order_data ) && !empty( $order_data ) ) {
+            return $order_data;
+        }
+        $fields = [
+            'gstm_logo'                 => [
+                'translation_key'  => 'gstm-company-logo',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_title'                => [
+                'translation_key'  => 'gstm-title',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_description'          => [
+                'translation_key'  => 'gstm-description',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_ratings'              => [
+                'translation_key'  => 'gstm-ratings',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_reviewer_image'       => [
+                'translation_key'  => 'gstm-reviewer-image',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_reviewer_name'        => [
+                'translation_key'  => 'gstm-reviewer-name',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_reviewer_designation' => [
+                'translation_key'  => 'gstm-reviewer-designation',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_company_name'         => [
+                'translation_key'  => 'gstm-company-name',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_mobile'               => [
+                'translation_key'  => 'gstm-mobile',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_email'                => [
+                'translation_key'  => 'gstm-email',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_address'              => [
+                'translation_key'  => 'gstm-address',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_website'              => [
+                'translation_key'  => 'gstm-website-url',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_publish_date'         => [
+                'translation_key'  => 'gstm-publish-date',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+            'gstm_social_icons'         => [
+                'translation_key'  => 'gstm-social-icons',
+                'desktop'          => true,
+                'tablet'           => true,
+                'mobile_landscape' => true,
+                'mobile'           => true,
+            ],
+        ];
+        return $fields;
+    }
+
+    public function validate_card_fields_visibility_settings( $settings, $theme ) {
+        $visibility_defaults = $this->get_card_visibility_defaults( $theme );
+        if ( $settings && is_array( $settings ) ) {
+            foreach ( $settings as $setting_key => &$setting ) {
+                if ( array_key_exists( 'translation_key', $setting ) ) {
+                    unset($setting['translation_key']);
+                }
+                $setting = shortcode_atts( $visibility_defaults[$setting_key], $setting );
+                $setting['desktop'] = wp_validate_boolean( $setting['desktop'] );
+                $setting['tablet'] = wp_validate_boolean( $setting['tablet'] );
+                $setting['mobile_landscape'] = wp_validate_boolean( $setting['mobile_landscape'] );
+                $setting['mobile'] = wp_validate_boolean( $setting['mobile'] );
+            }
+        }
+        return $settings;
+    }
+
+    public function validate_popup_fields_visibility_settings( $settings ) {
+        $visibility_defaults = $this->get_popup_visibility_defaults();
+        foreach ( $settings as $setting_key => &$setting ) {
+            if ( array_key_exists( 'translation_key', $setting ) ) {
+                unset($setting['translation_key']);
+            }
+            $setting = shortcode_atts( $visibility_defaults[$setting_key], $setting );
+            $setting['desktop'] = wp_validate_boolean( $setting['desktop'] );
+            $setting['tablet'] = wp_validate_boolean( $setting['tablet'] );
+            $setting['mobile_landscape'] = wp_validate_boolean( $setting['mobile_landscape'] );
+            $setting['mobile'] = wp_validate_boolean( $setting['mobile'] );
+        }
+        return $settings;
+    }
+
     /**
      * Plugin dashboard strings.
      * 
@@ -1238,26 +1530,15 @@ final class Builder {
             'image_width'                     => __( 'Image Width', 'gs-testimonial' ),
             'image_width__help'               => __( 'Author image size in width. Default 86 PX. Max 125 PX', 'gs-testimonial' ),
             'filter_cat_pos'                  => __( 'Filter Category Position', 'gs-testimonial' ),
-            'show_title'                      => __( 'Show Title', 'gs-testimonial' ),
-            'show_title__details'             => __( 'Enable / Disable Title field', 'gs-testimonial' ),
             'allow_html'                      => __( 'Allow HTML', 'gs-testimonial' ),
             'allow_html__details'             => __( 'Enable / Disable Allow HTML', 'gs-testimonial' ),
             'line-control'                    => __( 'Line Control', 'gs-testimonial' ),
             'line-control__details'           => __( 'Enable / Disable Line Control', 'gs-testimonial' ),
             'show_popup_rating'               => __( 'Show Rating on Popup', 'gs-testimonial' ),
             'show_popup_rating__details'      => __( 'Enable / Disable Rating on Popup', 'gs-testimonial' ),
-            'show_published_date'             => __( 'Show Published Date', 'gs-testimonial' ),
+            'show_published_date'             => __( 'Show Published Date on Popup', 'gs-testimonial' ),
             'show_published_date__details'    => __( 'Enable / Disable Published Date', 'gs-testimonial' ),
-            'show_designation'                => __( 'Show Designation', 'gs-testimonial' ),
-            'show_designation__details'       => __( 'Enable/Disable Designation field', 'gs-testimonial' ),
-            'show_company'                    => __( 'Show Company Name', 'gs-testimonial' ),
-            'show_company__details'           => __( 'Show / Hide Company Name', 'gs-testimonial' ),
-            'ratings'                         => __( 'Show Ratings', 'gs-testimonial' ),
-            'ratings__details'                => __( 'Show / Hide Ratings . Default OFF', 'gs-testimonial' ),
-            'image'                           => __( 'Show Author Image', 'gs-testimonial' ),
-            'image__details'                  => __( 'Show / Hide Author Image . Default OFF', 'gs-testimonial' ),
-            'company_logo'                    => __( 'Show Company Logo', 'gs-testimonial' ),
-            'company_logo__details'           => __( 'Show / Hide Company Logo . Default OFF', 'gs-testimonial' ),
+            'gs_tm_readmore'                  => __( 'Show Read More', 'gs-testimonial' ),
             'view_type'                       => __( 'View Type', 'gs-testimonial' ),
             'imageModes'                      => __( 'Image Mode', 'gs-testimonial' ),
             'imageSizes'                      => __( 'Image Sizes', 'gs-testimonial' ),
@@ -1275,11 +1556,11 @@ final class Builder {
             'orderby--help'                   => __( 'Use preffered orderby attribute', 'gs-testimonial' ),
             'order'                           => __( 'Order', 'gs-testimonial' ),
             'order--help'                     => __( 'Set order attribute', 'gs-testimonial' ),
-            'category'                        => __( 'Category', 'gs-testimonial' ),
+            'categories'                      => __( 'Category', 'gs-testimonial' ),
             'category--help'                  => __( 'Select specific categories to show that specific categories testimonials.', 'gs-testimonial' ),
             'exclude-category'                => __( 'Exclude Category', 'gs-testimonial' ),
             'exclude-category--help'          => __( 'Select specific categories to hide that specific categories testimonials.', 'gs-testimonial' ),
-            'authors'                         => __( 'Authors', 'gs-testimonial' ),
+            'authors'                         => __( 'Reviewer', 'gs-testimonial' ),
             'authors--help'                   => __( 'Select specific authors to show that specific authors testimonials.', 'gs-testimonial' ),
             'exclude-authors'                 => __( 'Exclude Authors', 'gs-testimonial' ),
             'exclude-authors--help'           => __( 'Select specific authors to hide that specific authors testimonials.', 'gs-testimonial' ),
@@ -1306,12 +1587,13 @@ final class Builder {
             'clone'                           => __( 'Clone', 'gs-testimonial' ),
             'delete'                          => __( 'Delete', 'gs-testimonial' ),
             'delete-all'                      => __( 'Delete All', 'gs-testimonial' ),
-            'general-settings'                => __( 'General Settings', 'gs-testimonial' ),
-            'style-settings'                  => __( 'Style Settings', 'gs-testimonial' ),
-            'query-settings'                  => __( 'Query Settings', 'gs-testimonial' ),
+            'general-settings'                => __( 'General', 'gs-testimonial' ),
+            'style-settings'                  => __( 'Style', 'gs-testimonial' ),
+            'query-settings'                  => __( 'Query', 'gs-testimonial' ),
             'general-settings-short'          => __( 'General', 'gs-testimonial' ),
             'style-settings-short'            => __( 'Style', 'gs-testimonial' ),
             'query-settings-short'            => __( 'Query', 'gs-testimonial' ),
+            'visibility-settings'             => __( 'Visibility', 'gs-testimonial' ),
             'name-of-the-shortcode'           => __( 'Name of the Shortcode', 'gs-testimonial' ),
             'save-shortcode'                  => __( 'Save Shortcode', 'gs-testimonial' ),
             'shortcode-name'                  => __( 'Shortcode Name', 'gs-testimonial' ),
@@ -1352,6 +1634,48 @@ final class Builder {
             'company_color'                   => __( 'Company Color', 'gs-testimonial' ),
             'info_color'                      => __( 'Info Color', 'gs-testimonial' ),
             'info_icon_color'                 => __( 'Info Icon Color', 'gs-testimonial' ),
+            'export-data'                     => __( 'Export Data', 'gs-testimonial' ),
+            'export-data--description'        => __( 'Export GS Testimonial Plugins data', 'gs-testimonial' ),
+            'import-data'                     => __( 'Import Data', 'gs-testimonial' ),
+            'import-data--description'        => __( 'Import GS Testimonial Plugins data', 'gs-testimonial' ),
+            'export-testimonial-data'         => __( 'Export Testimonial', 'gs-testimonial' ),
+            'export-shortcodes-data'          => __( 'Export Shortcodes', 'gs-testimonial' ),
+            'export-settings-data'            => __( 'Export Settings', 'gs-testimonial' ),
+            'gstm-title'                      => __( 'Title', 'gs-testimonial' ),
+            'gstm-company-logo'               => __( 'Company Logo', 'gs-testimonial' ),
+            'gstm-reviewer-name'              => __( 'Reviewer Name', 'gs-testimonial' ),
+            'gstm-description'                => __( 'Description', 'gs-testimonial' ),
+            'gstm-mobile'                     => __( 'Mobile', 'gs-testimonial' ),
+            'gstm-ratings'                    => __( 'Ratings', 'gs-testimonial' ),
+            'gstm-address'                    => __( 'Address', 'gs-testimonial' ),
+            'gstm-website-url'                => __( 'Website URL', 'gs-testimonial' ),
+            'gstm-publish-date'               => __( 'Publish Date', 'gs-testimonial' ),
+            'gstm-social-icons'               => __( 'Social Icons', 'gs-testimonial' ),
+            'gstm-reviewer-image'             => __( 'Reviewer Image', 'gs-testimonial' ),
+            'gstm-company-name'               => __( 'Company Name', 'gs-testimonial' ),
+            'gstm-email'                      => __( 'Email Address', 'gs-testimonial' ),
+            'gstm-reviewer-designation'       => __( 'Designation', 'gs-testimonial' ),
+            'gstm-card-title'                 => __( 'Title', 'gs-testimonial' ),
+            'gstm-card-designation'           => __( 'Designation', 'gs-testimonial' ),
+            'gstm-card-description'           => __( 'Description', 'gs-testimonial' ),
+            'gstm-card-ratings'               => __( 'Ratings', 'gs-testimonial' ),
+            'gstm-card-reviewer-image'        => __( 'Reviewer Image', 'gs-testimonial' ),
+            'gstm-card-reviewer-name'         => __( 'Reviewer Name', 'gs-testimonial' ),
+            'gstm-card-reviewer-designation'  => __( 'Reviewer Designation', 'gs-testimonial' ),
+            'gstm-card-company-name'          => __( 'Company Name', 'gs-testimonial' ),
+            'gstm-card-company-image'         => __( 'Company Logo', 'gs-testimonial' ),
+            'gstm-card-mobile'                => __( 'Mobile', 'gs-testimonial' ),
+            'gstm-card-email'                 => __( 'Email', 'gs-testimonial' ),
+            'gstm-card-address'               => __( 'Address', 'gs-testimonial' ),
+            'gstm-card-bg-icon'               => __( 'Quote Icon', 'gs-testimonial' ),
+            'gstm-card-website-url'           => __( 'Website', 'gs-testimonial' ),
+            'gstm-card-publish-date'          => __( 'Publish Date', 'gs-testimonial' ),
+            'gstm-card-social-icons'          => __( 'Social Icons', 'gs-testimonial' ),
+            'gs_filter_by'                    => __( 'Filter By', 'gs-testimonial' ),
+            'desktop'                         => __( 'Desktop', 'gs-testimonial' ),
+            'tablet'                          => __( 'Tablet', 'gs-testimonial' ),
+            'mobile_landscape'                => __( 'Mabile Landscape', 'gs-testimonial' ),
+            'mobile'                          => __( 'Mobile', 'gs-testimonial' ),
         ];
     }
 

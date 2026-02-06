@@ -46,42 +46,58 @@ if ( $gs_t_loop->have_posts() ) {
 
 						<!-- Testimonial Title -->
 						<?php 
-        if ( $testi_title && $shortcode_settings['show_title'] ) {
+        if ( $testi_title ) {
             ?>
-							<h3 class="box-tm-title"><?php 
+							<h3 class="box-tm-title <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_title', $card_visibility_settings ) );
+            ?>"><?php 
             echo esc_html( $testi_title );
             ?></h3>
 						<?php 
         }
         ?>
 
-						<!-- Testimonial Content -->
-						<?php 
+						<!-- Content -->
+						<div class="<?php 
+        echo esc_attr( gstm_get_visibility_class( 'gstm_card_description', $card_visibility_settings ) );
+        ?>">
+							<?php 
         include Template_Loader::locate_template( 'partials/gs-layout-content.php' );
         ?>
-						
+						</div>
+
 						<!-- Rating -->
 						<?php 
-        if ( $shortcode_settings['ratings'] && !empty( $rating ) ) {
-            $args = array(
+        if ( !empty( $rating ) ) {
+            ?>
+							<div class="<?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_ratings', $card_visibility_settings ) );
+            ?>">
+								<?php 
+            wp_star_rating( [
                 'rating' => $rating,
                 'type'   => 'rating',
-                'number' => '',
                 'echo'   => true,
-            );
-            wp_star_rating( $args );
+            ] );
+            ?>
+							</div>
+						<?php 
         }
         ?>
 
 						<div class="testimonial-author-info">
 
-							<!-- Testimonial Image -->
+							<!-- Reviewer Image -->
 							<?php 
-        if ( has_post_thumbnail() && $shortcode_settings['image'] ) {
+        if ( has_post_thumbnail() ) {
             ?>
-								<div class="box-image"><?php 
+								<div class="box-image <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_reviewer_image', $card_visibility_settings ) );
+            ?>">
+									<?php 
             the_post_thumbnail( $shortcode_settings['imageSize'] );
-            ?></div>
+            ?>
+								</div>
 							<?php 
         }
         ?>
@@ -89,15 +105,21 @@ if ( $gs_t_loop->have_posts() ) {
 							<div class="gs-tai-client">
 
 								<!-- Testimonial Name -->
-								<h4 class="box-client-name"><?php 
+								<h4 class="box-client-name <?php 
+        echo esc_attr( gstm_get_visibility_class( 'gstm_card_reviewer_name', $card_visibility_settings ) );
+        ?>">
+									<?php 
         echo esc_html( $client_name );
-        ?></h4>
-
+        ?>
+								</h4>
+								
 								<!-- Client Designation -->
 								<?php 
-        if ( $designatin && $shortcode_settings['show_designation'] ) {
+        if ( $designatin ) {
             ?>
-									<div class="box-desiginfo">
+									<div class="box-desiginfo <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_reviewer_designation', $card_visibility_settings ) );
+            ?>">
 										<span class="box-design-name"><?php 
             echo esc_html( $designatin );
             ?></span>
@@ -108,12 +130,25 @@ if ( $gs_t_loop->have_posts() ) {
 
 								<!-- Client Company -->
 								<?php 
+        if ( gstm_fs()->can_use_premium_code__premium_only() && $company ) {
+            ?>
+									<div class="box-companyinfo <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_company_name', $card_visibility_settings ) );
+            ?>">
+										<span class="box-company-name"><?php 
+            echo esc_html( $company );
+            ?></span>
+									</div>
+								<?php 
+        }
         ?>
 							
 								<?php 
         if ( !empty( $client_email ) ) {
             ?>
-									<div class="gs-tai-email">
+									<div class="gs-tai-email <?php 
+            echo esc_attr( gstm_get_visibility_class( 'gstm_card_email', $card_visibility_settings ) );
+            ?>">
 										<a href="mailto:<?php 
             echo esc_attr( $client_email );
             ?>"><?php 
@@ -131,17 +166,21 @@ if ( $gs_t_loop->have_posts() ) {
 					</div> <!-- End of testimonial-box -->
 
 					<?php 
+        // if ( gstm_fs()->can_use_premium_code__premium_only() ) {
+        include Template_Loader::locate_template( 'partials/gs-popup-content.php' );
+        // }
         ?>
 					
 				</div> <!-- End of gs_testimonial_single -->
 
 			<?php 
     }
+    wp_reset_postdata();
     ?>
 		</div>
 	<?php 
 } else {
-    echo esc_html( 'No Testimonial Added!', 'gs-testimonial' );
+    echo esc_html__( 'No Testimonial Added!', 'gs-testimonial' );
 }
 wp_reset_query();
 ?>
