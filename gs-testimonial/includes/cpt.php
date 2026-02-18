@@ -104,8 +104,30 @@ class Cpt {
             'choose_from_most_used'      => __( 'Choose from the most used Testimonial Categories', 'gs-testimonial' ),
             'not_found'                  => __( 'Not Found', 'gs-testimonial' ),
         );
+        $tag_labels = array(
+            'name'                       => _x( 'Testimonial Tags', 'Taxonomy General Name', 'gs-testimonial' ),
+            'singular_name'              => _x( 'Testimonial Tag', 'Taxonomy Singular Name', 'gs-testimonial' ),
+            'menu_name'                  => __( 'Tag', 'gs-testimonial' ),
+            'all_items'                  => __( 'All Testimonial Tags', 'gs-testimonial' ),
+            'parent_item'                => __( 'Parent Testimonial Tag', 'gs-testimonial' ),
+            'parent_item_colon'          => __( 'Parent Testimonial Tag:', 'gs-testimonial' ),
+            'new_item_name'              => __( 'New Testimonial Tag', 'gs-testimonial' ),
+            'add_new_item'               => __( 'Add New Testimonial Tag', 'gs-testimonial' ),
+            'edit_item'                  => __( 'Edit Testimonial Tag', 'gs-testimonial' ),
+            'update_item'                => __( 'Update Testimonial Tag', 'gs-testimonial' ),
+            'separate_items_with_commas' => __( 'Separate Testimonial Tags with commas', 'gs-testimonial' ),
+            'search_items'               => __( 'Search Testimonial Tags', 'gs-testimonial' ),
+            'add_or_remove_items'        => __( 'Add or remove Testimonial Tags', 'gs-testimonial' ),
+            'choose_from_most_used'      => __( 'Choose from the most used Testimonial Tags', 'gs-testimonial' ),
+            'not_found'                  => __( 'Not Found', 'gs-testimonial' ),
+        );
         $rewrite = array(
             'slug'         => 'gs-testimonial-category',
+            'with_front'   => true,
+            'hierarchical' => false,
+        );
+        $tags_rewrite = array(
+            'slug'         => 'gs-testimonial-tag',
             'with_front'   => true,
             'hierarchical' => false,
         );
@@ -119,7 +141,18 @@ class Cpt {
             'show_tagcloud'     => false,
             'rewrite'           => $rewrite,
         );
+        $tags_args = array(
+            'labels'            => $tag_labels,
+            'hierarchical'      => false,
+            'public'            => true,
+            'show_ui'           => true,
+            'show_admin_column' => true,
+            'show_in_nav_menus' => false,
+            'show_tagcloud'     => false,
+            'rewrite'           => $tags_rewrite,
+        );
         register_taxonomy( 'gs_testimonial_category', array('gs_testimonial'), $args );
+        register_taxonomy( 'gs_testimonial_tag', array('gs_testimonial'), $tags_args );
     }
 
 }

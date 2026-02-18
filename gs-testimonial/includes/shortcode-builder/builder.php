@@ -27,7 +27,13 @@ final class Builder {
         add_action( 'show_admin_bar', array($this, 'hide_admin_bar_from_preview') );
         add_action( 'wp_ajax_gstm_update_popup_visibility_order', array($this, 'gstm_update_popup_visibility_order') );
         add_action( 'wp_ajax_save_card_visibility', array($this, 'save_card_visibility') );
+        add_action( 'init', array($this, 'init') );
         return $this;
+    }
+
+    public function init() {
+        include GSTM_PLUGIN_DIR . 'includes/shortcode-builder/shortcode_builder_fonts.php';
+        include GSTM_PLUGIN_DIR . 'includes/shortcode-builder/shortcode_builder_fonts_loader.php';
     }
 
     public function save_card_visibility() {
@@ -105,6 +111,7 @@ final class Builder {
         $data['preferences'] = $this->get_shortcode_default_prefs();
         $data['translations'] = $this->get_translation_srtings();
         $data['isProActivated'] = gstm_fs()->can_use_premium_code();
+        $data['fonts_data'] = $this->get_fonts_list();
         $data['demo_data'] = [
             'items_data'     => wp_validate_boolean( get_option( 'gstm_dummy_items_data_created' ) ),
             'shortcode_data' => wp_validate_boolean( get_option( 'gstm_dummy_shortcode_data_created' ) ),
@@ -125,8 +132,12 @@ final class Builder {
         ] );
     }
 
+    public function is_preview() {
+        return isset( $_REQUEST['gstm_shortcode_preview'] ) && !empty( $_REQUEST['gstm_shortcode_preview'] );
+    }
+
     public function preview_scripts( $hook ) {
-        if ( !is_preview() ) {
+        if ( !$this->is_preview() ) {
             return;
         }
         wp_enqueue_style(
@@ -134,6 +145,13 @@ final class Builder {
             GSTM_PLUGIN_URI . '/assets/css/preview.min.css',
             [],
             GSTM_VERSION
+        );
+        wp_enqueue_script(
+            'gstm-shortcode-preview',
+            GSTM_PLUGIN_URI . '/assets/js/preview.min.js',
+            ['jquery'],
+            GSTM_VERSION,
+            true
         );
     }
 
@@ -168,6 +186,24 @@ final class Builder {
             'message'      => __( 'Shortcode created successfully', 'gs-testimonial' ),
             'shortcode_id' => $wpdb->insert_id,
         ] );
+    }
+
+    public function get_fonts_list( $include_empty_one = true ) {
+        $fonts = GSTM_SEC_Shortcode_Fonts::get_fonts();
+        $fonts = array_keys( $fonts );
+        $fonts = array_map( function ( $item ) {
+            return [
+                'label' => $item,
+                'value' => $item,
+            ];
+        }, $fonts );
+        if ( $include_empty_one ) {
+            array_unshift( $fonts, [
+                'label' => __( 'Default', 'gs-sm-sec' ),
+                'value' => '',
+            ] );
+        }
+        return $fonts;
     }
 
     public function get_shortcode_default_prefs() {
@@ -223,15 +259,8 @@ final class Builder {
             'filter_color_active'          => '',
             'filter_bg_color_active'       => '',
             'filter_border_color_active'   => '',
-            'testimonial_title_color'      => '',
-            'testimonial_color'            => '',
-            'read_more_color'              => '',
-            'read_more_hover_color'        => '',
             'ratings_color'                => '',
-            'name_color'                   => '',
             'item_bg_color'                => '',
-            'designation_color'            => '',
-            'company_color'                => '',
             'info_color'                   => '',
             'info_icon_color'              => '',
             'imageMode'                    => 'normal',
@@ -240,18 +269,47 @@ final class Builder {
             'order'                        => 'DESC',
             'filter_cat_pos'               => 'cat_center',
             'categories'                   => [],
+            'tags'                         => [],
             'gs_tm_details_contl'          => 100,
             'gs_tm_readmore'               => true,
             'gs_tm_line_contl'             => 5,
             'reverse_direction'            => false,
             'excludeCategories'            => [],
+            'excludeTags'                  => [],
             'authors'                      => [],
             'excludeAuthors'               => [],
             'popup_visibility_settings'    => $this->get_popup_visibility_defaults( $shortcode_id ),
             'card_visibility_settings'     => $this->get_card_visibility_defaults( '', $shortcode_id ),
             'gs_filter_by'                 => 'cats',
+            'gs_average_ratings'           => true,
+            'filters_rats_tab_style'       => 'rating-temp-01',
+            'gs_ratings_icon'              => 'star',
+            'typography_title'             => (object) [],
+            'typography_testimonial'       => (object) [],
+            'typography_read_more'         => (object) [],
+            'typography_reviewer_name'     => (object) [],
+            'typography_designation'       => (object) [],
+            'typography_company_name'      => (object) [],
+            'typography_company_email'     => (object) [],
+            'typography_company_phone'     => (object) [],
+            'gs_box_bg_color'              => 'bg-color',
+            'gs_box_gradient_bg'           => '',
+            'gs_box_gradient_bg_1'         => '',
+            'gs_box_gradient_bg_2'         => '',
+            'gs_box_gradient_bg_3'         => '',
+            'linear_range'                 => '200',
         ];
         return $defaults;
+    }
+
+    public function gs_box_bg_color_option() {
+        return [[
+            'label' => __( 'BG Color', 'gs-testimonial' ),
+            'value' => 'bg-color',
+        ], [
+            'label' => __( 'Gradient Color', 'gs-testimonial' ),
+            'value' => 'gradient-bg-color',
+        ]];
     }
 
     public function clone_shortcode() {
@@ -557,16 +615,48 @@ final class Builder {
             'carousel_dots_position' => $this->get_carousel_dot_positions(),
             'filters_tab_style'      => $this->get_filters_tab_styles(),
             'categories'             => $this->get_testimonial_terms(),
+            'tags'                   => $this->get_testimonial_terms( 'gs_testimonial_tag' ),
             'authors'                => [],
             'gs_filter_by'           => $this->gs_filter_by(),
+            'filters_rats_tab_style' => $this->get_filters_rats_tab_styles(),
+            'gs_box_bg_color'        => $this->gs_box_bg_color_option(),
         ];
+        $options['excludeCategories'] = $this->get_testimonial_terms();
         return $options;
+    }
+
+    public function get_filters_rats_tab_styles() {
+        return [
+            [
+                'label' => __( 'Rating 1', 'gs-testimonial' ),
+                'value' => 'rating-temp-01',
+            ],
+            [
+                'label' => __( 'Rating 2', 'gs-testimonial' ),
+                'value' => 'rating-temp-02',
+            ],
+            [
+                'label' => __( 'Rating 3', 'gs-testimonial' ),
+                'value' => 'rating-temp-03',
+            ],
+            [
+                'label' => __( 'Rating 4', 'gs-testimonial' ),
+                'value' => 'rating-temp-04',
+            ],
+            [
+                'label' => __( 'Rating 5', 'gs-testimonial' ),
+                'value' => 'rating-temp-05',
+            ]
+        ];
     }
 
     public function gs_filter_by() {
         return [[
             'label' => __( 'Category', 'gs-testimonial' ),
             'value' => 'cats',
+        ], [
+            'label' => __( 'Tags', 'gs-testimonial' ),
+            'value' => 'tags',
         ], [
             'label' => __( 'Ratings', 'gs-testimonial' ),
             'value' => 'rats',
@@ -996,8 +1086,8 @@ final class Builder {
      * @param  bool $idsOnly For extracting category ids only.
      * @return array        Testimonial categories.
      */
-    public function get_testimonial_terms( $idsOnly = false ) {
-        $terms = get_terms( 'gs_testimonial_category', array(
+    public function get_testimonial_terms( $taxonomy = 'gs_testimonial_category', $idsOnly = false ) {
+        $terms = get_terms( $taxonomy, array(
             'hide_empty' => false,
         ) );
         if ( empty( $terms ) ) {
@@ -1074,34 +1164,30 @@ final class Builder {
         $shortcode_settings['filter_color_active'] = sanitize_text_field( $shortcode_settings['filter_color_active'] );
         $shortcode_settings['filter_bg_color_active'] = sanitize_text_field( $shortcode_settings['filter_bg_color_active'] );
         $shortcode_settings['filter_border_color_active'] = sanitize_text_field( $shortcode_settings['filter_border_color_active'] );
-        $shortcode_settings['testimonial_title_color'] = sanitize_text_field( $shortcode_settings['testimonial_title_color'] );
-        $shortcode_settings['testimonial_color'] = sanitize_text_field( $shortcode_settings['testimonial_color'] );
-        $shortcode_settings['read_more_hover_color'] = sanitize_text_field( $shortcode_settings['read_more_hover_color'] );
         $shortcode_settings['ratings_color'] = sanitize_text_field( $shortcode_settings['ratings_color'] );
-        $shortcode_settings['name_color'] = sanitize_text_field( $shortcode_settings['name_color'] );
         $shortcode_settings['item_bg_color'] = sanitize_text_field( $shortcode_settings['item_bg_color'] );
-        $shortcode_settings['designation_color'] = sanitize_text_field( $shortcode_settings['designation_color'] );
-        $shortcode_settings['company_color'] = sanitize_text_field( $shortcode_settings['company_color'] );
         $shortcode_settings['info_color'] = sanitize_text_field( $shortcode_settings['info_color'] );
         $shortcode_settings['info_icon_color'] = sanitize_text_field( $shortcode_settings['info_icon_color'] );
-        $shortcode_settings['read_more_color'] = sanitize_text_field( $shortcode_settings['read_more_color'] );
         $shortcode_settings['imageMode'] = sanitize_text_field( $shortcode_settings['imageMode'] );
         $shortcode_settings['imageSize'] = sanitize_text_field( $shortcode_settings['imageSize'] );
         $shortcode_settings['orderby'] = sanitize_text_field( $shortcode_settings['orderby'] );
         $shortcode_settings['order'] = sanitize_text_field( $shortcode_settings['order'] );
         $shortcode_settings['filter_cat_pos'] = sanitize_text_field( $shortcode_settings['filter_cat_pos'] );
-        if ( gstm_fs()->is_paying_or_trial() ) {
-            $shortcode_settings['reverse_direction'] = wp_validate_boolean( $shortcode_settings['reverse_direction'] );
-            $shortcode_settings['gs_tm_details_contl'] = intval( $shortcode_settings['gs_tm_details_contl'] );
-            $shortcode_settings['gs_tm_line_contl'] = intval( $shortcode_settings['gs_tm_line_contl'] );
-            $validated_data['excludeCategories'] = array_map( 'intval', $shortcode_settings['excludeCategories'] );
-            $validated_data['authors'] = array_map( 'sanitize_text_field', $shortcode_settings['authors'] );
-            $validated_data['excludeAuthors'] = array_map( 'sanitize_text_field', $shortcode_settings['excludeAuthors'] );
-            $shortcode_settings['gs_tm_readmore'] = wp_validate_boolean( $shortcode_settings['gs_tm_readmore'] );
-        }
         $shortcode_settings['popup_visibility_settings'] = $this->validate_popup_fields_visibility_settings( $shortcode_settings['popup_visibility_settings'] );
         $shortcode_settings['card_visibility_settings'] = $this->validate_card_fields_visibility_settings( $shortcode_settings['card_visibility_settings'], $shortcode_settings['theme'] );
         $shortcode_settings['gs_filter_by'] = sanitize_text_field( $shortcode_settings['gs_filter_by'] );
+        $shortcode_settings['gs_ratings_icon'] = sanitize_text_field( $shortcode_settings['gs_ratings_icon'] );
+        $shortcode_settings['gs_average_ratings'] = sanitize_text_field( $shortcode_settings['gs_average_ratings'] );
+        $shortcode_settings['typography_title'] = (object) (array) $shortcode_settings['typography_title'];
+        $shortcode_settings['typography_testimonial'] = (object) (array) $shortcode_settings['typography_testimonial'];
+        $shortcode_settings['typography_read_more'] = (object) (array) $shortcode_settings['typography_read_more'];
+        $shortcode_settings['typography_reviewer_name'] = (object) (array) $shortcode_settings['typography_reviewer_name'];
+        $shortcode_settings['typography_designation'] = (object) (array) $shortcode_settings['typography_designation'];
+        $shortcode_settings['typography_company_name'] = (object) (array) $shortcode_settings['typography_company_name'];
+        $shortcode_settings['typography_company_email'] = (object) (array) $shortcode_settings['typography_company_email'];
+        $shortcode_settings['typography_company_phone'] = (object) (array) $shortcode_settings['typography_company_phone'];
+        $shortcode_settings['gs_box_bg_color'] = sanitize_text_field( $shortcode_settings['gs_box_bg_color'] );
+        $shortcode_settings['gs_box_gradient_bg'] = sanitize_text_field( $shortcode_settings['gs_box_gradient_bg'] );
         return (array) $shortcode_settings;
     }
 
@@ -1140,6 +1226,9 @@ final class Builder {
             $shortcode_settings['gstm-demo_data'] = true;
             if ( !empty( $categories = $shortcode_settings['categories'] ) ) {
                 $shortcode_settings['categories'] = (array) $Dummy_Data->get_taxonomy_ids_by_slugs( 'gs_testimonial_category', $categories );
+            }
+            if ( !empty( $tags = $shortcode_settings['tags'] ) ) {
+                $shortcode_settings['tags'] = (array) $Dummy_Data->get_taxonomy_ids_by_slugs( 'gs_testimonial_tag', $tags );
             }
             if ( !empty( $excludeCategories = $shortcode_settings['excludeCategories'] ) ) {
                 $shortcode_settings['excludeCategories'] = (array) $Dummy_Data->get_taxonomy_ids_by_slugs( 'gs_testimonial_category', $excludeCategories );
@@ -1557,6 +1646,7 @@ final class Builder {
             'order'                           => __( 'Order', 'gs-testimonial' ),
             'order--help'                     => __( 'Set order attribute', 'gs-testimonial' ),
             'categories'                      => __( 'Category', 'gs-testimonial' ),
+            'tags'                            => __( 'Tags', 'gs-testimonial' ),
             'category--help'                  => __( 'Select specific categories to show that specific categories testimonials.', 'gs-testimonial' ),
             'exclude-category'                => __( 'Exclude Category', 'gs-testimonial' ),
             'exclude-category--help'          => __( 'Select specific categories to hide that specific categories testimonials.', 'gs-testimonial' ),
@@ -1624,14 +1714,7 @@ final class Builder {
             'filter_bg_color_active'          => __( 'Filter Active BG Color', 'gs-testimonial' ),
             'filter_border_color_active'      => __( 'Filter Active Border Color', 'gs-testimonial' ),
             'item_bg_color'                   => __( 'Box Background Color', 'gs-testimonial' ),
-            'testimonial_title_color'         => __( 'Title Color', 'gs-testimonial' ),
-            'testimonial_color'               => __( 'Testimonial Color', 'gs-testimonial' ),
-            'read_more_color'                 => __( 'Read More Color', 'gs-testimonial' ),
-            'read_more_hover_color'           => __( 'Read More Hover Color', 'gs-testimonial' ),
-            'name_color'                      => __( 'Name Color', 'gs-testimonial' ),
             'ratings_color'                   => __( 'Ratings Color', 'gs-testimonial' ),
-            'designation_color'               => __( 'Designation Color', 'gs-testimonial' ),
-            'company_color'                   => __( 'Company Color', 'gs-testimonial' ),
             'info_color'                      => __( 'Info Color', 'gs-testimonial' ),
             'info_icon_color'                 => __( 'Info Icon Color', 'gs-testimonial' ),
             'export-data'                     => __( 'Export Data', 'gs-testimonial' ),
@@ -1674,8 +1757,22 @@ final class Builder {
             'gs_filter_by'                    => __( 'Filter By', 'gs-testimonial' ),
             'desktop'                         => __( 'Desktop', 'gs-testimonial' ),
             'tablet'                          => __( 'Tablet', 'gs-testimonial' ),
-            'mobile_landscape'                => __( 'Mabile Landscape', 'gs-testimonial' ),
+            'mobile_landscape'                => __( 'Mobile Landscape', 'gs-testimonial' ),
             'mobile'                          => __( 'Mobile', 'gs-testimonial' ),
+            'filters_rats_tab_style'          => __( 'Rating Style', 'gs-testimonial' ),
+            'gs_ratings_icon'                 => __( 'Select Ratings Icon', 'gs-testimonial' ),
+            'gs_average_ratings'              => __( 'Show/Hide Average Ratings', 'gs-testimonial' ),
+            'linear_range'                    => __( 'Angle °C', 'gs-testimonial' ),
+            'typography_title'                => __( 'Testimonial Title ', 'gs-testimonial' ),
+            'typography_testimonial'          => __( 'Testimonial', 'gs-testimonial' ),
+            'typography_read_more'            => __( 'Read More', 'gs-testimonial' ),
+            'typography_reviewer_name'        => __( 'Reviewer Name ', 'gs-testimonial' ),
+            'typography_designation'          => __( 'Designation', 'gs-testimonial' ),
+            'typography_company_name'         => __( 'Company Name ', 'gs-testimonial' ),
+            'typography_company_phone'        => __( 'Company Phone', 'gs-testimonial' ),
+            'typography_company_email'        => __( 'Company Email', 'gs-testimonial' ),
+            'gs_box_bg_color'                 => __( 'Box Background Color', 'gs-testimonial' ),
+            'gs_box_gradient_bg'              => __( 'Gradient BG Color', 'gs-testimonial' ),
         ];
     }
 

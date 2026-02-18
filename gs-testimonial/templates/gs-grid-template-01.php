@@ -23,11 +23,9 @@ if ( $gs_t_loop->have_posts() ) {
             "gs-col-lg-{$desktop_columns}",
             "gs-col-md-{$tablet_columns}",
             "gs-col-sm-{$columns_mobile}",
-            "gs-col-xs-{$columns_small_mobile}"
+            "gs-col-xs-{$columns_small_mobile}",
+            $box_bg_color
         ];
-        if ( $view_type === 'filter' ) {
-            $classes[] = get_terms_slugs();
-        }
         $image_id = get_post_meta( get_the_ID(), 'rudr_img', true );
         $rating = get_post_meta( get_the_ID(), 'gs_t_rating', true );
         $testi_title = get_the_title();
@@ -38,6 +36,16 @@ if ( $gs_t_loop->have_posts() ) {
         $client_email = get_post_meta( get_the_ID(), 'gs_t_client_email_address', true );
         $client_address = get_post_meta( get_the_ID(), 'gs_t_client_location', true );
         $client_website = get_post_meta( get_the_ID(), 'gs_t_website_url', true );
+        $filter_rating = ( intval( $rating ) == $rating ? (string) intval( $rating ) : str_replace( '.', '-', (string) $rating ) );
+        if ( $view_type == 'filter' && $gs_filter_by == 'tags' ) {
+            $classes[] = get_terms_slugs( 'gs_testimonial_tag' );
+        }
+        if ( $view_type == 'filter' && $gs_filter_by == 'cats' ) {
+            $classes[] = get_terms_slugs( 'gs_testimonial_category' );
+        }
+        if ( $view_type == 'filter' && $gs_filter_by == 'rats' ) {
+            $classes[] = 'gs-star-' . $filter_rating;
+        }
         ?>
 
 			<div class="<?php 
@@ -76,11 +84,13 @@ if ( $gs_t_loop->have_posts() ) {
             echo esc_attr( gstm_get_visibility_class( 'gstm_card_ratings', $card_visibility_settings ) );
             ?>">
 							<?php 
-            wp_star_rating( [
+            $args = array(
                 'rating' => $rating,
                 'type'   => 'rating',
+                'number' => '',
                 'echo'   => true,
-            ] );
+            );
+            gs_wp_star_rating( $args, $shortcode_settings['gs_ratings_icon'] );
             ?>
 						</div>
 					<?php 

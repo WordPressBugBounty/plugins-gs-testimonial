@@ -70,15 +70,16 @@ $all_fields[] = [
 
 if (! empty($rating) && ! empty($show_popup_rating)) {
     ob_start();
-    wp_star_rating(
-        [
-            'rating' => $rating,
-            'type'   => 'rating',
-            'number' => '',
-            'class'  => $get_visibility_class('gstm_ratings'),
-            'echo'   => true,
-        ]
-    );
+    $args = array(
+				'rating' => $rating,
+				'type'   => 'rating',
+				'number' => '',
+                'class'  => $get_visibility_class('gstm_ratings'),
+				'echo'   => true,
+				);
+			gs_wp_star_rating($args, $shortcode_settings['gs_ratings_icon']);
+						
+
     $stars = ob_get_clean();
 
     if ($stars) {

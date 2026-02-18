@@ -75,10 +75,31 @@ class Shortcode {
                 'terms'    => $categories,
             ];
         }
+        $tags = (array) $shortcode_settings['tags'];
+        $tags = array_filter( $tags );
+        if ( !empty( $tags ) ) {
+            $queryArgs['tax_query'][] = [
+                'taxonomy' => 'gs_testimonial_tag',
+                'field'    => 'term_id',
+                'terms'    => $tags,
+            ];
+        }
+        $excludeCategories = (array) $shortcode_settings['excludeCategories'];
+        $excludeCategories = array_filter( $excludeCategories );
+        $excludeCategories = array_diff( $excludeCategories, $categories );
+        if ( !empty( $excludeCategories ) ) {
+            $queryArgs['tax_query'][] = [
+                'taxonomy' => 'gs_testimonial_category',
+                'field'    => 'term_id',
+                'terms'    => $excludeCategories,
+                'operator' => 'NOT IN',
+            ];
+        }
         $gs_t_loop = new \WP_Query($queryArgs);
         require_once ABSPATH . 'wp-admin/includes/template.php';
         ob_start();
         extract( $shortcode_settings );
+        // print_r( $shortcode_settings['typography_company_phone'] );
         if ( !gstm_fs()->can_use_premium_code() ) {
             if ( !in_array( $theme, ['grid_style1', 'grid_style2', 'grid_style3'] ) ) {
                 $theme = 'grid_style1';
@@ -90,6 +111,7 @@ class Shortcode {
         $is_popup_enabled = true;
         $container_classes = [
             'gs_testimonial_container',
+            'gs-filter-by-' . $gs_filter_by,
             $theme,
             'image-mode-' . $imageMode,
             'view-type-' . $view_type,
@@ -126,6 +148,10 @@ class Shortcode {
                 $container_classes[] = 'carousel-dots--' . $carousel_dots_style;
                 $container_classes[] = 'carousel-dots--' . $carousel_dots_position;
             }
+        }
+        $box_bg_color = '';
+        if ( $shortcode_settings['gs_box_bg_color'] == 'gradient-bg-color' ) {
+            $box_bg_color = ' gstm-box-' . $shortcode_settings['gs_box_bg_color'];
         }
         if ( $view_type === 'masonry' ) {
             $gs_tm_details_contl = '';
@@ -183,7 +209,10 @@ class Shortcode {
             return shortcode_atts( $default_settings, get_transient( $id ) );
         }
         $shortcode = plugin()->builder->_get_shortcode( $id );
-        return shortcode_atts( $default_settings, (array) $shortcode['shortcode_settings'] );
+        if ( !is_array( $shortcode ) || empty( $shortcode['shortcode_settings'] ) || !is_array( $shortcode['shortcode_settings'] ) ) {
+            return shortcode_atts( $default_settings, [] );
+        }
+        return shortcode_atts( $default_settings, $shortcode['shortcode_settings'] );
     }
 
     public function should_custom_script_render() {

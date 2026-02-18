@@ -17,7 +17,7 @@ if ( $gs_t_loop->have_posts() ) {
 			<?php 
     while ( $gs_t_loop->have_posts() ) {
         $gs_t_loop->the_post();
-        $classes = ["gs_testimonial_single gs-col-lg-{$desktop_columns} gs-col-md-{$tablet_columns} gs-col-sm-{$columns_mobile} gs-col-xs-{$columns_small_mobile}"];
+        $classes = ["gs_testimonial_single gs-col-lg-{$desktop_columns} gs-col-md-{$tablet_columns} gs-col-sm-{$columns_mobile} gs-col-xs-{$columns_small_mobile} {$box_bg_color}"];
         $image_id = get_post_meta( get_the_ID(), 'rudr_img', true );
         $rating = get_post_meta( get_the_ID(), 'gs_t_rating', true );
         $testi_title = get_the_title();
@@ -29,8 +29,15 @@ if ( $gs_t_loop->have_posts() ) {
         $client_email = get_post_meta( get_the_ID(), 'gs_t_client_email_address', true );
         $client_address = get_post_meta( get_the_ID(), 'gs_t_client_location', true );
         $client_website = get_post_meta( get_the_ID(), 'gs_t_website_url', true );
-        if ( $view_type == 'filter' ) {
-            $classes[] = get_terms_slugs();
+        $filter_rating = ( intval( $rating ) == $rating ? (string) intval( $rating ) : str_replace( '.', '-', (string) $rating ) );
+        if ( $view_type == 'filter' && $gs_filter_by == 'tags' ) {
+            $classes[] = get_terms_slugs( 'gs_testimonial_tag' );
+        }
+        if ( $view_type == 'filter' && $gs_filter_by == 'cats' ) {
+            $classes[] = get_terms_slugs( 'gs_testimonial_category' );
+        }
+        if ( $view_type == 'filter' && $gs_filter_by == 'rats' ) {
+            $classes[] = 'gs-star-' . $filter_rating;
         }
         ?>
 				
@@ -74,11 +81,13 @@ if ( $gs_t_loop->have_posts() ) {
             echo esc_attr( gstm_get_visibility_class( 'gstm_card_ratings', $card_visibility_settings ) );
             ?>">
 								<?php 
-            wp_star_rating( [
+            $args = array(
                 'rating' => $rating,
                 'type'   => 'rating',
+                'number' => '',
                 'echo'   => true,
-            ] );
+            );
+            gs_wp_star_rating( $args, $shortcode_settings['gs_ratings_icon'] );
             ?>
 							</div>
 						<?php 
@@ -149,7 +158,7 @@ if ( $gs_t_loop->have_posts() ) {
 									<div class="gs-tai-email <?php 
             echo esc_attr( gstm_get_visibility_class( 'gstm_card_email', $card_visibility_settings ) );
             ?>">
-										<a href="mailto:<?php 
+										<a class="gstm-email" href="mailto:<?php 
             echo esc_attr( $client_email );
             ?>"><?php 
             echo esc_html( $client_email );

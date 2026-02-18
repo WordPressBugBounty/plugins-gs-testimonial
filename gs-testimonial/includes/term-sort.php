@@ -78,7 +78,14 @@ if (!class_exists('Term_Sort')) :
 
 		public function dhf_sort()
 		{
-			$object_type = isset($_GET['object_type']) ? $_GET['object_type'] : 'sort_gs_testimonial';
+
+		$object_type = '';	
+		$object_type = isset($_GET['gs_object_type']) ? sanitize_key( wp_unslash( $_GET['gs_object_type'] ) ) : 'sort_gs_testimonial';
+		
+		if ( $object_type === '' ) {
+			$object_type = 'sort_gs_testimonial';
+		}
+		
 		?>
 		
 		<style>
@@ -169,8 +176,8 @@ if (!class_exists('Term_Sort')) :
 			<div class="gs-plugins--sort-page">
 
 				<div class="gs-plugins--sort-links">
-					<a class="<?php echo $object_type === 'sort_gs_testimonial' ? 'gs-sort-active' : ''; ?>" href="<?php echo esc_url(admin_url('edit.php?post_type=gs_testimonial&page=sort_order_gs_testimonial&object_type=sort_gs_testimonial')); ?>"><?php echo esc_html('Testimonial', 'gs-testimonial'); ?></a>
-					<a class="<?php echo $object_type === 'sort_group_gs_testimonial' ? 'gs-sort-active' : ''; ?>" href="<?php echo esc_url(admin_url('edit.php?post_type=gs_testimonial&page=sort_order_gs_testimonial&object_type=sort_group_gs_testimonial')); ?>"><?php echo esc_html('Group', 'gs-testimonial'); ?></a>
+					<a class="<?php echo $object_type === 'sort_gs_testimonial' ? 'gs-sort-active' : ''; ?>" href="<?php echo esc_url(admin_url('edit.php?post_type=gs_testimonial&page=sort_order_gs_testimonial&gs_object_type=sort_gs_testimonial')); ?>"><?php echo esc_html('Testimonial', 'gs-testimonial'); ?></a>
+					<a class="<?php echo $object_type === 'sort_group_gs_testimonial' ? 'gs-sort-active' : ''; ?>" href="<?php echo esc_url(admin_url('edit.php?post_type=gs_testimonial&page=sort_order_gs_testimonial&gs_object_type=sort_group_gs_testimonial')); ?>"><?php echo esc_html('Group', 'gs-testimonial'); ?></a>
 				</div>
 
 				<div class="gs-plugins--sort-content">

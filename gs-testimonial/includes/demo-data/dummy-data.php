@@ -915,9 +915,9 @@ final class Dummy_Data {
     // Notice
     function gstm_dummy_data_admin_notice() {
 
-        // delete_option('gstm_dismiss_demo_data_notice');
+        $is_alreasy_imported = get_option('gstm_dismiss_demo_data_notice');
 
-        if ( get_option('gstm_dismiss_demo_data_notice') ) return;
+        if ( $is_alreasy_imported ) return false;
 
         if ( get_current_screen()->id == 'gs_testimonial_page_gst-shortcode' ) return;
 

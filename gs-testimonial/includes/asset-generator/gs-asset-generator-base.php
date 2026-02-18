@@ -38,6 +38,7 @@ if ( ! class_exists('GSPLUGINS\GS_Asset_Generator_Base') ) {
         public function get_assets_model() {
             return [
                 'styles' => [],
+                'fonts' => [],
                 'scripts' => []
             ];
         }
@@ -121,17 +122,27 @@ if ( ! class_exists('GSPLUGINS\GS_Asset_Generator_Base') ) {
             }
         }
     
-        public function add_item_in_asset_list( $type, $item, $item_data = [] ) {
+         public function add_item_in_asset_list( $type, $item, $item_data = [] ) {
     
             if ( empty($this->assets) ) $this->assets = $this->get_assets_model();
     
             if ( ! array_key_exists($item, $this->assets[$type]) ) {
-    
+
                 $this->assets[$type][$item] = $item_data;
     
             } else {
     
-                if ( $item == 'inline' ) {
+                if ( $item == 'google-fonts' ) {
+
+                    $item_data = is_array($item_data) ? $item_data : [$item_data];
+                    
+                    foreach ( $item_data as $font ) {
+                        if ( ! in_array( $font, $this->assets[$type][$item] ) ) {
+                            $this->assets[$type][$item][] = $font;
+                        }
+                    }
+    
+                } else if ( $item == 'inline' ) {
     
                     $this->assets[$type][$item] = $this->assets[$type][$item] . $item_data;
     

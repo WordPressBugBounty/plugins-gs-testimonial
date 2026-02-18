@@ -84,7 +84,7 @@ class Columns {
                 'type'   => 'rating',
                 'number' => 0
             );
-            wp_star_rating( $args );
+           gs_wp_star_rating( $args );
         }
     }
 }
