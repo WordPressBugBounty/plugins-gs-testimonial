@@ -107,11 +107,9 @@ function get_featured_image($postId)
 function get_description($max_length = 100, $is_popup_enabled = false, $shortcode_id = null)
 {
 
-    $description = get_the_content();
-    $description = sanitize_text_field($description);
+    $description = '<span class="gstm-description">' . get_the_content() . '</span>';
+    $description = wp_kses_post($description);
 
-    // if ( gstm_fs()->can_use_premium_code__premium_only() ) {
-    // Reduce the description length
     if ($max_length > 0 && strlen($description) > $max_length) {
 
         $description    = substr($description, 0, $max_length);
@@ -120,18 +118,10 @@ function get_description($max_length = 100, $is_popup_enabled = false, $shortcod
             $description .= sprintf('...<a class="gstm-popup--link" data-mfp-src="#gstm_popup_%s_%s" aria-label="Testimonial Details Link" href="#">%s</a>', get_the_ID(), $shortcode_id, esc_html($gstm_read_more));
         }
     }
-    // }
 
     return $description;
 }
 
-// function get_description_with_html( $is_popup_enabled = false, $shortcode_id = null ) {
-
-//     $description = get_the_content();
-//     $description = wp_kses_post( $description );
-
-//     return $description;
-// }
 
 function gstm_read_more($is_popup_enabled = false, $shortcode_id = null)
 {

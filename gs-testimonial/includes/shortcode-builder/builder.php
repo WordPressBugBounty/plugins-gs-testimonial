@@ -467,7 +467,12 @@ final class Builder {
         global $wp, $wp_query;
         if ( $this->is_gstm_shortcode_preview() ) {
             // Create our fake post
-            $post_id = rand( 1, 99999 ) - 9999999;
+            // $post_id              = rand(1, 99999) - 9999999;
+            $posts = get_posts( [
+                'numberposts' => 1,
+                'orderby'     => 'rand',
+            ] );
+            $post_id = ( !empty( $posts ) ? $posts[0]->ID : 0 );
             $post = new \stdClass();
             $post->ID = $post_id;
             $post->post_author = 1;
@@ -1176,7 +1181,6 @@ final class Builder {
         $shortcode_settings['popup_visibility_settings'] = $this->validate_popup_fields_visibility_settings( $shortcode_settings['popup_visibility_settings'] );
         $shortcode_settings['card_visibility_settings'] = $this->validate_card_fields_visibility_settings( $shortcode_settings['card_visibility_settings'], $shortcode_settings['theme'] );
         $shortcode_settings['gs_filter_by'] = sanitize_text_field( $shortcode_settings['gs_filter_by'] );
-        $shortcode_settings['gs_ratings_icon'] = sanitize_text_field( $shortcode_settings['gs_ratings_icon'] );
         $shortcode_settings['gs_average_ratings'] = sanitize_text_field( $shortcode_settings['gs_average_ratings'] );
         $shortcode_settings['typography_title'] = (object) (array) $shortcode_settings['typography_title'];
         $shortcode_settings['typography_testimonial'] = (object) (array) $shortcode_settings['typography_testimonial'];
@@ -1645,7 +1649,7 @@ final class Builder {
             'orderby--help'                   => __( 'Use preffered orderby attribute', 'gs-testimonial' ),
             'order'                           => __( 'Order', 'gs-testimonial' ),
             'order--help'                     => __( 'Set order attribute', 'gs-testimonial' ),
-            'categories'                      => __( 'Category', 'gs-testimonial' ),
+            'categories'                      => __( 'Categories', 'gs-testimonial' ),
             'tags'                            => __( 'Tags', 'gs-testimonial' ),
             'category--help'                  => __( 'Select specific categories to show that specific categories testimonials.', 'gs-testimonial' ),
             'exclude-category'                => __( 'Exclude Category', 'gs-testimonial' ),

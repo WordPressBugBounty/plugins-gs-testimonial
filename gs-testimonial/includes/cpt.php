@@ -19,6 +19,7 @@ class Cpt {
         add_action( 'init', [$this, 'register'] );
         add_action( 'after_setup_theme', [$this, 'theme_support'] );
         add_action( 'init', array($this, 'register_taxonomies'), 0 );
+        add_action( 'admin_menu', array($this, 'gs_testimonial_reorder_taxonomy_menu'), 999 );
     }
 
     /**
@@ -85,12 +86,49 @@ class Cpt {
         add_filter( 'widget_text', 'do_shortcode' );
     }
 
+    function gs_testimonial_reorder_taxonomy_menu() {
+        global $submenu;
+        $parent_slug = 'edit.php?post_type=gs_testimonial';
+        if ( empty( $submenu[$parent_slug] ) ) {
+            return;
+        }
+        $new_menu = [];
+        $category_item = null;
+        $tag_item = null;
+        // Separate category & tag items
+        foreach ( $submenu[$parent_slug] as $item ) {
+            if ( strpos( $item[2], 'taxonomy=gs_testimonial_category' ) !== false ) {
+                $category_item = $item;
+                continue;
+            }
+            if ( strpos( $item[2], 'taxonomy=gs_testimonial_tag' ) !== false ) {
+                $tag_item = $item;
+                continue;
+            }
+            $new_menu[] = $item;
+        }
+        // Insert Categories & Tags together (Categories first)
+        foreach ( $new_menu as $index => $item ) {
+            if ( strpos( $item[2], 'edit.php?post_type=gs_testimonial' ) !== false ) {
+                // After main "All Testimonials"
+                array_splice(
+                    $new_menu,
+                    $index + 2,
+                    0,
+                    array_filter( [$category_item, $tag_item] )
+                );
+                break;
+            }
+        }
+        $submenu[$parent_slug] = $new_menu;
+    }
+
     // Register Custom Taxonomy For Testimonial Slider
     public function register_taxonomies() {
         $labels = array(
             'name'                       => _x( 'Testimonial Categories', 'Taxonomy General Name', 'gs-testimonial' ),
             'singular_name'              => _x( 'Testimonial Category', 'Taxonomy Singular Name', 'gs-testimonial' ),
-            'menu_name'                  => __( 'Category', 'gs-testimonial' ),
+            'menu_name'                  => __( 'Categories', 'gs-testimonial' ),
             'all_items'                  => __( 'All Testimonial Category', 'gs-testimonial' ),
             'parent_item'                => __( 'Parent Testimonial Category', 'gs-testimonial' ),
             'parent_item_colon'          => __( 'Parent Testimonial Category:', 'gs-testimonial' ),
@@ -107,7 +145,7 @@ class Cpt {
         $tag_labels = array(
             'name'                       => _x( 'Testimonial Tags', 'Taxonomy General Name', 'gs-testimonial' ),
             'singular_name'              => _x( 'Testimonial Tag', 'Taxonomy Singular Name', 'gs-testimonial' ),
-            'menu_name'                  => __( 'Tag', 'gs-testimonial' ),
+            'menu_name'                  => __( 'Tags', 'gs-testimonial' ),
             'all_items'                  => __( 'All Testimonial Tags', 'gs-testimonial' ),
             'parent_item'                => __( 'Parent Testimonial Tag', 'gs-testimonial' ),
             'parent_item_colon'          => __( 'Parent Testimonial Tag:', 'gs-testimonial' ),
@@ -140,6 +178,7 @@ class Cpt {
             'show_in_nav_menus' => false,
             'show_tagcloud'     => false,
             'rewrite'           => $rewrite,
+            'meta_box_cb'       => 'post_categories_meta_box',
         );
         $tags_args = array(
             'labels'            => $tag_labels,
@@ -150,6 +189,7 @@ class Cpt {
             'show_in_nav_menus' => false,
             'show_tagcloud'     => false,
             'rewrite'           => $tags_rewrite,
+            'meta_box_cb'       => 'post_tags_meta_box',
         );
         register_taxonomy( 'gs_testimonial_category', array('gs_testimonial'), $args );
         register_taxonomy( 'gs_testimonial_tag', array('gs_testimonial'), $tags_args );

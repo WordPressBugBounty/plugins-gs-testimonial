@@ -378,7 +378,8 @@ class Scripts {
 		 	clear:both
 		 }
 		
-		 #menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gst-shortcodes"]:after,
+		 #menu-posts-gs_testimonial li a[href^="edit-tags.php?taxonomy=gs_testimonial_tag&post_type=gs_testimonial"]:after,
+		  #menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gst-shortcodes#/demo-data"]:after,
 		  #menu-posts-gs_testimonial li a[href^="edit.php?post_type=gs_testimonial&page=gs-testimonial-contact"]:after
 		 ,#menu-posts-gs_testimonial li:nth-last-child(3) a:after{
 		   border-bottom:1px solid hsla(0,0%,100%,.2);

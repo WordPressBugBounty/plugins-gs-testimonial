@@ -108,9 +108,14 @@ class Shortcode {
                 $view_type = 'grid';
             }
         }
+        $isProActivated = 'gs-pro-not-active';
+        if ( gstm_fs()->can_use_premium_code() ) {
+            $isProActivated = 'gs-pro-active';
+        }
         $is_popup_enabled = true;
         $container_classes = [
             'gs_testimonial_container',
+            $isProActivated,
             'gs-filter-by-' . $gs_filter_by,
             $theme,
             'image-mode-' . $imageMode,
