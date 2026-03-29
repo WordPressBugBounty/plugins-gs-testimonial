@@ -298,6 +298,7 @@ final class Builder {
             'gs_box_gradient_bg_2'         => '',
             'gs_box_gradient_bg_3'         => '',
             'linear_range'                 => '200',
+            'gs_slider_move_items'         => '1',
         ];
         return $defaults;
     }
@@ -1192,6 +1193,7 @@ final class Builder {
         $shortcode_settings['typography_company_phone'] = (object) (array) $shortcode_settings['typography_company_phone'];
         $shortcode_settings['gs_box_bg_color'] = sanitize_text_field( $shortcode_settings['gs_box_bg_color'] );
         $shortcode_settings['gs_box_gradient_bg'] = sanitize_text_field( $shortcode_settings['gs_box_gradient_bg'] );
+        $shortcode_settings['gs_slider_move_items'] = sanitize_text_field( $shortcode_settings['gs_slider_move_items'] );
         return (array) $shortcode_settings;
     }
 
@@ -1777,6 +1779,7 @@ final class Builder {
             'typography_company_email'        => __( 'Company Email', 'gs-testimonial' ),
             'gs_box_bg_color'                 => __( 'Box Background Color', 'gs-testimonial' ),
             'gs_box_gradient_bg'              => __( 'Gradient BG Color', 'gs-testimonial' ),
+            'gs_slider_move_items'            => __( 'Move Items', 'gs-testimonial' ),
         ];
     }
 

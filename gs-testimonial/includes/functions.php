@@ -226,6 +226,7 @@ function get_carousel_settings($settings)
     $getDatas['carousel_navs_style']    = sanitize_key($settings['carousel_navs_style']);
     $getDatas['carousel_dots_style']    = sanitize_key($settings['carousel_dots_style']);
     $getDatas['carousel_dots_position'] = sanitize_key($settings['carousel_dots_position']);
+    $getDatas['gs_slider_move_items']   = intval($settings['gs_slider_move_items']);
 
     if (is_pro_active()) {
         $getDatas['reverseDirection'] = wp_validate_boolean($settings['reverse_direction']);

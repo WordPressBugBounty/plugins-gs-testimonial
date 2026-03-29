@@ -12,7 +12,7 @@
  * Plugin Name:			Solid Testimonials
  * Plugin URI:			https://www.gsplugins.com/wordpress-plugins/
  * Description:       	Discover the Ultimate Responsive Testimonials Slider for Showcasing Client Testimonials and Recommendations. Easily Display Anywhere on Your Site using the Simple Shortcode [gs_testimonial id=1]. Explore <a href="https://testimonial.gsplugins.com/">Solid Testimonials Demo</a> and Comprehensive <a href="https://docs.gsplugins.com/gs-testimonial-slider/">Documentation</a>.
- * Version:           	3.3.9
+ * Version:           	3.3.10
  * Author:       		GS Plugins
  * Author URI:       	https://www.gsplugins.com/
  * Text Domain:       	gs-testimonial
@@ -28,7 +28,7 @@ if ( !defined( 'WPINC' ) ) {
  * Defining constants
  */
 if ( !defined( 'GSTM_VERSION' ) ) {
-    define( 'GSTM_VERSION', '3.3.9' );
+    define( 'GSTM_VERSION', '3.3.10' );
 }
 if ( !defined( 'GSTM_MENU_POSITION' ) ) {
     define( 'GSTM_MENU_POSITION', 39 );
@@ -57,24 +57,25 @@ if ( function_exists( 'gstm_fs' ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
                 $gstm_fs = fs_dynamic_init( array(
-                    'id'             => '12861',
-                    'slug'           => 'gs-testimonial',
-                    'premium_slug'   => 'gs-testimonial-pro',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_4a6b7553615bb8b8b5c545954816f',
-                    'is_premium'     => false,
-                    'premium_suffix' => '- Pro',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'trial'          => array(
+                    'id'               => '12861',
+                    'slug'             => 'gs-testimonial',
+                    'premium_slug'     => 'gs-testimonial-pro',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_4a6b7553615bb8b8b5c545954816f',
+                    'is_premium'       => false,
+                    'premium_suffix'   => '- Pro',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'trial'            => array(
                         'days'               => 14,
                         'is_require_payment' => true,
                     ),
-                    'menu'           => array(
+                    'menu'             => array(
                         'slug'       => 'edit.php?post_type=gs_testimonial',
                         'first-path' => 'edit.php?post_type=gs_testimonial&page=gs-testimonial-plugins-help',
                     ),
-                    'is_live'        => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $gstm_fs;
