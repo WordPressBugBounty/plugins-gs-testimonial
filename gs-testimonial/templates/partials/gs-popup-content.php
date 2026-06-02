@@ -101,7 +101,6 @@ if (has_post_thumbnail()) {
 }
 
 
-
 if (! empty($client_name)) {
      $all_fields[] = [
         'html'     => '<h4 class="box-client-name ' . esc_attr( $get_visibility_class('gstm_reviewer_name') ) . '">' . esc_html($client_name) . '</h4>',
@@ -122,7 +121,6 @@ if (! empty($company)) {
         'position' => $get_pos('gstm_company_name'),
     ];
 }
-
 
 if (! empty($client_address)) {
     $all_fields[] = [
